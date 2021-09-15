@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class RushEnemy_MoveComponent : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed;
+    [SerializeField] private Level _mLevel;
 
+    [SerializeField] private float _mMoveSpeed;
     [SerializeField] private float _mMoveTime;
     [SerializeField] private float _mCurrentMoveTime;
 
@@ -17,6 +18,8 @@ public class RushEnemy_MoveComponent : MonoBehaviour
     {
         _mMoveTargetPos = transform.localPosition;
         _mMoveTurn = 0;
+
+        _mLevel = GetComponent<Level>();
     }
 
     // Update is called once per frame
@@ -66,7 +69,6 @@ public class RushEnemy_MoveComponent : MonoBehaviour
         }
 
     }
-
 
     bool IsMove()
     {
