@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RushEnemy_MoveComponent : MonoBehaviour
+public class RushEnemy_Level2_Move_Component : MonoBehaviour
 {
-    [SerializeField] private Level _mLevel;
-
-    [SerializeField] private float _mMoveSpeed;
-    [SerializeField] private float _mMoveTime;
+    [SerializeField] private float _mMoveSpeed = 3.0f;
+    [SerializeField] private float _mMoveTime = 0.1f;
     [SerializeField] private float _mCurrentMoveTime;
 
     private Vector3 _mMoveTargetPos;
-    [SerializeField] private int _mMoveTurn;
+    [SerializeField] private int _mMoveTurn = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +17,6 @@ public class RushEnemy_MoveComponent : MonoBehaviour
         _mMoveTargetPos = transform.localPosition;
         _mMoveTurn = 0;
 
-        _mLevel = GetComponent<Level>();
     }
 
     // Update is called once per frame
@@ -43,12 +40,6 @@ public class RushEnemy_MoveComponent : MonoBehaviour
     void MoveTarget()
     {
         var currentPos = transform.position;
-
-        if (_mMoveTurn == 2)
-        {
-            _mMoveTargetPos = currentPos + (Vector3.back * _mMoveSpeed * 2.0f);
-            return;
-        }
 
         _mMoveTargetPos = currentPos + (Vector3.back * _mMoveSpeed);
     }
