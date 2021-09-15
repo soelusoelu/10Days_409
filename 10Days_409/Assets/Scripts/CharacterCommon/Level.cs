@@ -6,23 +6,31 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private int level = 1;
     [SerializeField] private int maxLevel = 3;
+    public delegate void CallbackOnDead();
+    private CallbackOnDead onDead;
 
-    //void LevelUp() {
-    //    if (level < maxLevel) {
-    //        ++level;
-    //        Debug.log("level up");
-    //    }
-    //}
+    void LevelUp() {
+        if (level < maxLevel) {
+            ++level;
+            Debug.Log("level up.");
+        }
+    }
 
-    //void LevelDown() {
-    //    --level;
+    void LevelDown() {
+        --level;
+        Debug.Log("level down. current level " + level.ToString());
 
-    //    if (level <= 0) {
-    //        dea
-    //    }
-    //}
+        if (level <= 0) {
+            Destroy();
+        }
+    }
 
-    //void OnDestory() {
+    void OnDead(CallbackOnDead f) {
+        onDead += f;
+    }
 
-    //}
+    private void Destroy() {
+        Debug.Log("dead.");
+        onDead();
+    }
 }
