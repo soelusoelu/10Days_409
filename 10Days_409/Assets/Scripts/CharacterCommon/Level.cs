@@ -11,35 +11,39 @@ public class Level : MonoBehaviour
     public delegate void CallbackOnUpdateLevel();
     private CallbackOnUpdateLevel onUpdateLevel;
 
-    void LevelUp() {
+    public void LevelUp() {
         if (level < maxLevel) {
             ++level;
             Debug.Log("level up.");
+
+            onUpdateLevel();
         }
     }
 
-    void LevelDown() {
+    public void LevelDown() {
         --level;
         Debug.Log("level down. current level " + level.ToString());
+
+        onUpdateLevel();
 
         if (level <= 0) {
             Destroy();
         }
     }
 
-    int GetLevel() {
+    public int GetLevel() {
         return level;
     }
 
-    int GetMaxLevel() {
+    public int GetMaxLevel() {
         return maxLevel;
     }
 
-    void OnUpdateLevel(CallbackOnUpdateLevel f) {
+    public void OnUpdateLevel(CallbackOnUpdateLevel f) {
         onUpdateLevel += f;
     }
 
-    void OnDead(CallbackOnDead f) {
+    public void OnDead(CallbackOnDead f) {
         onDead += f;
     }
 
