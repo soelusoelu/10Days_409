@@ -69,7 +69,7 @@ Shader "Unlit/testShader"
                 //UNITY_APPLY_FOG(i.fogCoord, col);
                 //return col;
 
-				return float4(GridTest(i.uv), 0.0, 0.0, 0.0);
+				//return float4(GridTest(i.uv), 0.0, 0.0, 0.0);
 
 				fixed4 gridColour = (_GridColor * GridTest(i.uv)) + tex2D(_MainTex, i.uv);
 				return float4(gridColour);
