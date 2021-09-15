@@ -15,12 +15,16 @@ public class Level : MonoBehaviour
         if (level < maxLevel) {
             ++level;
             Debug.Log("level up.");
+
+            onUpdateLevel();
         }
     }
 
     void LevelDown() {
         --level;
         Debug.Log("level down. current level " + level.ToString());
+
+        onUpdateLevel();
 
         if (level <= 0) {
             Destroy();
