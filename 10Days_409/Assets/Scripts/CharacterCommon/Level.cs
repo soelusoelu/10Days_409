@@ -14,7 +14,7 @@ public class Level : MonoBehaviour
     public void LevelUp() {
         if (level < maxLevel) {
             ++level;
-            Debug.Log("level up.");
+            Debug.Log("level up. current level " + level.ToString());
 
             onUpdateLevel();
         }
@@ -27,7 +27,7 @@ public class Level : MonoBehaviour
         onUpdateLevel();
 
         if (level <= 0) {
-            Destroy();
+            Dead();
         }
     }
 
@@ -47,7 +47,7 @@ public class Level : MonoBehaviour
         onDead += f;
     }
 
-    private void Destroy() {
+    private void Dead() {
         Debug.Log("dead.");
         onDead();
     }
