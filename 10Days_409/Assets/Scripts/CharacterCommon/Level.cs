@@ -8,6 +8,8 @@ public class Level : MonoBehaviour
     [SerializeField] private int maxLevel = 3;
     public delegate void CallbackOnDead();
     private CallbackOnDead onDead;
+    public delegate void CallbackOnUpdateLevel();
+    private CallbackOnUpdateLevel onUpdateLevel;
 
     void LevelUp() {
         if (level < maxLevel) {
@@ -23,6 +25,18 @@ public class Level : MonoBehaviour
         if (level <= 0) {
             Destroy();
         }
+    }
+
+    int GetLevel() {
+        return level;
+    }
+
+    int GetMaxLevel() {
+        return maxLevel;
+    }
+
+    void OnUpdateLevel(CallbackOnUpdateLevel f) {
+        onUpdateLevel += f;
     }
 
     void OnDead(CallbackOnDead f) {
