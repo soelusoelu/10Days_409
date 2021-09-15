@@ -1,11 +1,51 @@
-Shader "Unlit/testShader"
+Shader "CustomSkybox/SkyBoxShader"
 {
-    Properties
-    {
-        _MainTex ("Texture", 2D) = "white" {}
-		[HDR]_GridColor("Grid Colour", Color) = (255, 0, 0, 0)
-		_GridNum("Grid num", int) = 10
-    }
+	SubShader
+	{
+		Tags
+		{
+			"RenderType" = "Background"
+			"Queue" = "Background"
+			"PreviewType" = "SkyBox"
+		}
+
+		Pass
+		{
+			ZWrite Off
+			Cull Off
+			
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float3 texcoord : TEXCOORD0;
+			};
+
+			struct v2f
+			{
+				float4 vertex : SV_POSITION;
+				float3 texcoord : TEXCOORD0;
+			};
+
+			v2f vert(appdata v)
+			{
+				v2f o;
+				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.texcoord = v.texcoord;
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				return fixed4(lerp(fixed3(1, 0, 0), fixed3(0, 0, 1), i.texcoord.y * 0.5 + 0.5), 1.0);
+			}
+			ENDCG
+		}
+	}
+	/*
     SubShader
     {
         Tags { "RenderType"="Opaque" }
@@ -35,8 +75,6 @@ Shader "Unlit/testShader"
             };
 
             sampler2D _MainTex;
-			float4 _GridColor;
-			float _GridNum;
             float4 _MainTex_ST;
 
             v2f vert (appdata v)
@@ -48,36 +86,16 @@ Shader "Unlit/testShader"
                 return o;
             }
 
-			float GridTest(float2 r)
-			{
-				float result;
-				float gridnum = 1.0 / _GridNum;
-
-				for (float i = 0.0; i < 1.0; i += gridnum)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						result += 1.0 - smoothstep(0.0, 0.004, abs(r[j] - i));
-					}
-				}
-
-				return result;
-			}
-
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                //fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 col = tex2D(_MainTex, i.uv);
                 // apply fog
-                //UNITY_APPLY_FOG(i.fogCoord, col);
-                //return col;
-
-				//return float4(GridTest(i.uv), 0.0, 0.0, 0.0);
-
-				fixed4 gridColour = (_GridColor * GridTest(i.uv)) + tex2D(_MainTex, i.uv);
-				return float4(gridColour);
+                UNITY_APPLY_FOG(i.fogCoord, col);
+                return col;
             }
             ENDCG
         }
     }
+	*/
 }
