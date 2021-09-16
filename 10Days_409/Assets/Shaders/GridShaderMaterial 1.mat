@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: testShaderMaterial
+  m_Name: GridShaderMaterial 1
   m_Shader: {fileID: 4800000, guid: 0db0d0d8226b73f4185efcd43bf1bb2a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _GridNum: 30
+    - _GridNum: 10
     m_Colors:
-    - _GridColor: {r: 2.0550058, g: 0, b: 1.0916481, a: 0}
+    - _GridColor: {r: 255, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
