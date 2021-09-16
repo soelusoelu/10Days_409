@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 5418400915209841165}
   - component: {fileID: 8319697380202679302}
   m_Layer: 0
-  m_Name: Eye (2)
+  m_Name: Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
