@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RushEnemy_Level2_Move_Component : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed = 3.0f;
+    [SerializeField] private float _mMoveSpeed = 1.0f;
     [SerializeField] private float _mMoveTime = 0.1f;
     [SerializeField] private float _mCurrentMoveTime;
 
