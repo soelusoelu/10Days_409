@@ -13,6 +13,8 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject defenceBlockPrefab;
     [SerializeField] private GameObject _mlevel2_Body;
 
+    private Enemy_Damage _mEnemyDamage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
 
         GameObject face = transform.Find("Face").gameObject;
         _mFaceAnimator = face.GetComponent<Animator>();
+
+        _mEnemyDamage = GetComponent<Enemy_Damage>();
 
         LevelChange();
     }
@@ -37,6 +41,19 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
         //{
         //    _mLevel.LevelUp();
         //}
+
+        if(_mEnemyDamage.IsEmpty())
+        {
+            _mEnemyDamage.ResetHP();
+            _mLevel.LevelDown();
+
+            if(_mLevel.GetLevel() <= 0)
+            {
+                return;
+            }
+
+            LevelChange();
+        }
     }
 
 

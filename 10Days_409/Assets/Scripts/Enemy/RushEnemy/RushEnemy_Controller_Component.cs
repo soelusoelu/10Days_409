@@ -14,6 +14,9 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject _mLevel3Body;
     [SerializeField] private Animator _mFaceAnimator;
 
+    private Enemy_Damage _mEnemyDamage;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,11 @@ public class RushEnemy_Controller_Component : MonoBehaviour
         GameObject face = transform.Find("Face").gameObject;
         _mFaceAnimator = face.GetComponent<Animator>();
 
+        _mEnemyDamage = GetComponent<Enemy_Damage>();
+
+
         LevelChange();
+
     }
 
     // Update is called once per frame
@@ -38,6 +45,19 @@ public class RushEnemy_Controller_Component : MonoBehaviour
         //{
         //    _mLevel.LevelUp();
         //}
+
+        if (_mEnemyDamage.IsEmpty())
+        {
+            _mEnemyDamage.ResetHP();
+            _mLevel.LevelDown();
+
+            if (_mLevel.GetLevel() <= 0)
+            {
+                return;
+            }
+
+            LevelChange();
+        }
     }
 
 
