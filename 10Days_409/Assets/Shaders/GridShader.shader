@@ -1,4 +1,4 @@
-Shader "Unlit/testShader"
+Shader "Unlit/GridShader"
 {
     Properties
     {
@@ -51,7 +51,8 @@ Shader "Unlit/testShader"
 			float GridTest(float2 r)
 			{
 				float result;
-				float gridnum = 1.0 / _GridNum;
+				float gridnum = (_GridNum < 1) ? 1 : _GridNum;
+				gridnum = 1.0 / gridnum;
 
 				for (float i = 0.0; i < 1.0; i += gridnum)
 				{
