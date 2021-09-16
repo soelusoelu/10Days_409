@@ -29,15 +29,15 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            _mLevel.LevelDown();
-        }
+        //if (Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+        //    _mLevel.LevelDown();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _mLevel.LevelUp();
-        }
+        //if (Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    _mLevel.LevelUp();
+        //}
     }
 
 
