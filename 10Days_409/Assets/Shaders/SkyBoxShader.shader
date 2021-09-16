@@ -38,9 +38,25 @@ Shader "CustomSkybox/SkyBoxShader"
 				return o;
 			}
 
+			float GridTest(float3 r)
+			{
+				float result;
+
+				for (float i = -1.0; i < 1.0; i += 0.075)
+				{
+					for (int j = 0; j < 3; j++)
+					{
+						result += 1.0 - smoothstep(0.0, 0.004, abs(r[j] - i));
+					}
+				}
+
+				return result;
+			}
+
 			fixed4 frag(v2f i) : SV_Target
 			{
-				return fixed4(lerp(fixed3(1, 0, 0), fixed3(0, 0, 1), i.texcoord.y * 0.5 + 0.5), 1.0);
+				return float4(0.0, 0.0, GridTest(i.texcoord.xyz) / 2, 0.0);
+				//return fixed4(lerp(fixed3(1, 0, 0), fixed3(0, 0, 1), i.texcoord.y * 0.5 + 0.5), 1.0);
 			}
 			ENDCG
 		}
