@@ -55,7 +55,7 @@ Shader "CustomSkybox/SkyBoxShader"
 
 			fixed4 frag(v2f i) : SV_Target
 			{
-				return float4(0.0, 0.0, GridTest(i.texcoord) / 2, 0.0);
+				return float4(0.0, 0.0, GridTest(i.texcoord.xyz) / 2, 0.0);
 				//return fixed4(lerp(fixed3(1, 0, 0), fixed3(0, 0, 1), i.texcoord.y * 0.5 + 0.5), 1.0);
 			}
 			ENDCG
