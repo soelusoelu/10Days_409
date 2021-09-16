@@ -7,6 +7,9 @@ public class waveSystem : MonoBehaviour
     [SerializeField] private GameObject[] waves;
     private EnemyCreater enemyCreater;
     private int currentIndex = 0;
+    public delegate void CallbackOnEndWave();
+    private CallbackOnEndWave onEndWave;
+    private CallbackOnEndWave onAllEndWave;
 
     private void Start() {
         var newWave = waves[currentIndex];
@@ -22,14 +25,43 @@ public class waveSystem : MonoBehaviour
             return;
         }
 
-        var enemys = enemyCreater.getEnemys();
-        Debug.Log("enemys count: " + enemys.Length.ToString());
-        for (int i = 0; i < enemys.Length; i++) {
-            if (enemys[i] != null) {
+        if (enemyCreater.IsDestroyedEnemys()) {
+            if (currentIndex == waves.Length) {
                 return;
             }
-        }
 
-        Debug.Log("enemys destroyed.");
+            Debug.Log("enemys destroyed.");
+
+            if (onEndWave != null) {
+                onEndWave();
+            }
+
+            ChangeWave();
+        }
+    }
+
+    public int GetCurrentWave() {
+        return currentIndex;
+    }
+
+    public void OnEndWave(CallbackOnEndWave f) {
+        onEndWave += f;
+    }
+
+    public void OnAllEndWave(CallbackOnEndWave f) {
+        onAllEndWave += f;
+    }
+
+    private void ChangeWave() {
+        ++currentIndex;
+        if (currentIndex >= waves.Length) {
+            Debug.Log("all ended waves.");
+            if (onAllEndWave != null) {
+                onAllEndWave();
+            }
+        } else {
+            var newCreater = Instantiate(waves[currentIndex]);
+            enemyCreater = newCreater.GetComponent<EnemyCreater>();
+        }
     }
 }

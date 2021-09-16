@@ -6,6 +6,7 @@ public class EnemyCreater : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private float[] nextCreateTimes;
+    private List<GameObject> createdEnemys;
     private Timer timer;
     private int currentIndex = 0;
     private bool isLastCreatedWave = false;
@@ -14,6 +15,7 @@ public class EnemyCreater : MonoBehaviour
     private void Start() {
         Debug.Assert(enemys.Length == nextCreateTimes.Length);
 
+        createdEnemys = new List<GameObject>();
         timer = new Timer();
 
         if (enemys.Length > 0) {
@@ -25,6 +27,11 @@ public class EnemyCreater : MonoBehaviour
 
     private void Update() {
         if (isLastCreatedWave) {
+            for (int i = 0; i < createdEnemys.Count; i++) {
+                if (createdEnemys[i] == null) {
+                    createdEnemys.RemoveAt(i);
+                }
+            }
             return;
         }
 
@@ -33,7 +40,8 @@ public class EnemyCreater : MonoBehaviour
             return;
         }
 
-        Instantiate(enemys[currentIndex]);
+        var newEnemy = Instantiate(enemys[currentIndex]);
+        createdEnemys.Add(newEnemy);
 
         ++currentIndex;
         if (currentIndex >= enemys.Length) {
@@ -47,8 +55,8 @@ public class EnemyCreater : MonoBehaviour
         timer.Reset();
     }
 
-    public GameObject[] getEnemys() {
-        return enemys;
+    public bool IsDestroyedEnemys() {
+        return (createdEnemys.Count == 0);
     }
 
     public bool CreatedLastEnemy() {
