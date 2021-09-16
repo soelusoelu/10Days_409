@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 2095348580}
   - component: {fileID: 2095348585}
   - component: {fileID: 2095348586}
+  - component: {fileID: 2095348587}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -423,7 +424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdc9a2ac2bd7b0468d7a34af4e00e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 20
+  maxMoveSpeed: 35
+  speedLerpTime: 0.5
+  speedLerpMinusTime: 0.25
 --- !u!114 &2095348586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,3 +441,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7261120514450485098, guid: c354b2ec86261c0438d5c2a60301a066, type: 3}
+  reshotInterval: 0.25
+--- !u!114 &2095348587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095348579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1998870fdd51d2429a67f5ed8625128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomb: {fileID: 7893752318393969138, guid: 8e1f6c2da19a4fd429df2fa127ee6e74, type: 3}
+  reshotInterval: 20
