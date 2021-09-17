@@ -1109,6 +1109,7 @@ GameObject:
   - component: {fileID: 8349322349061923038}
   - component: {fileID: 8296224624518733673}
   - component: {fileID: 9185855433906244137}
+  - component: {fileID: 71252631526489952}
   m_Layer: 0
   m_Name: BlockEnemy
   m_TagString: Untagged
@@ -1224,7 +1225,8 @@ MonoBehaviour:
   _mFaceAnimator: {fileID: 0}
   defenceBlockPrefab: {fileID: 8025189900531988581, guid: 79d4b7d93ef894e4890ec6cdb528798e, type: 3}
   _mlevel2_Body: {fileID: 1976359975231118197}
-  _mlevel1_Body: {fileID: 0}
+  _mlevel1_Body: {fileID: 4180600488818449359}
+  _mDeathParticle: {fileID: 6850413316014305109, guid: 05cd4096797cee2468981724f859743b, type: 3}
 --- !u!114 &8296224624518733673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,6 +1241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAXHP: 3
   _mCurrentHP: 0
+  _mMainAnimator: {fileID: 0}
+  _mDamageParticle: {fileID: 2161207403206307119, guid: 332b53774c2e291449500a6bda442ffc, type: 3}
 --- !u!114 &9185855433906244137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,3 +1255,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e91476a6710e61409bff78af0ac23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mOutArea: -5
+--- !u!95 &71252631526489952
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349322349061923034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 384f113bfca54c342abcebbfb7e49fe8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

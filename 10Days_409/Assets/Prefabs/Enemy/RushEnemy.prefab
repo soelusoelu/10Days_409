@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 898460439743553386}
   - component: {fileID: 5700006020733095678}
   - component: {fileID: 2273958135108473875}
+  - component: {fileID: 4725296584070261691}
   m_Layer: 0
   m_Name: RushEnemy
   m_TagString: Untagged
@@ -475,6 +476,7 @@ MonoBehaviour:
   _mLevel2Body: {fileID: 898460438738889307}
   _mLevel3Body: {fileID: 898460438713076331}
   _mFaceAnimator: {fileID: 0}
+  _mDeathParticle: {fileID: 6850413316014305109, guid: 05cd4096797cee2468981724f859743b, type: 3}
 --- !u!114 &898460439743553386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAXHP: 3
   _mCurrentHP: 0
+  _mMainAnimator: {fileID: 0}
+  _mDamageParticle: {fileID: 2161207403206307119, guid: 332b53774c2e291449500a6bda442ffc, type: 3}
 --- !u!114 &2273958135108473875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +519,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e91476a6710e61409bff78af0ac23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mOutArea: -2
+  _mOutArea: -5
+--- !u!95 &4725296584070261691
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898460439743553387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 384f113bfca54c342abcebbfb7e49fe8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &898460439780417619
 GameObject:
   m_ObjectHideFlags: 0
