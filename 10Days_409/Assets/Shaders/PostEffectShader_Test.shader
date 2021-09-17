@@ -3,6 +3,7 @@ Shader "Unlit/PostEffectShader_Test"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+		_CameraDepthTexture("Texture", 2D) = "white" {}
     }
     SubShader
     {
@@ -34,6 +35,8 @@ Shader "Unlit/PostEffectShader_Test"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+			sampler2D _CameraDepthTexture;
+			float4 _CameraDepthTexture_ST;
 
             v2f vert (appdata v)
             {
