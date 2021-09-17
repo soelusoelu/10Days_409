@@ -109,6 +109,7 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
         Destroy(this.gameObject);
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
+        Destroy(particle,3.0f);
     }
     private void OnTriggerEnter(Collider other)
     {
