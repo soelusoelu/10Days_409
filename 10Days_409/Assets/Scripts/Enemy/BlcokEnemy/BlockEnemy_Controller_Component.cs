@@ -13,6 +13,7 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject defenceBlockPrefab;
     [SerializeField] private GameObject _mlevel2_Body;
     [SerializeField] private GameObject _mlevel1_Body;
+    [SerializeField] private GameObject _mDeathParticle;
 
     private Enemy_Damage _mEnemyDamage;
 
@@ -106,6 +107,16 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     void Death()
     {
         Destroy(this.gameObject);
+        var particle = GameObject.Instantiate(_mDeathParticle);
+        particle.transform.position = transform.position;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Death();
+        }
+
     }
 
     void ChangeLevel2()

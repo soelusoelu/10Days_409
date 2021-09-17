@@ -13,6 +13,7 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject _mLevel2Body;
     [SerializeField] private GameObject _mLevel3Body;
     [SerializeField] private Animator _mFaceAnimator;
+    [SerializeField] private GameObject _mDeathParticle;
 
     private Enemy_Damage _mEnemyDamage;
 
@@ -109,6 +110,17 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     void Death()
     {
         Destroy(this.gameObject);
+        var particle = GameObject.Instantiate(_mDeathParticle);
+        particle.transform.position = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Death();
+        }
+
     }
 
     void ChangeLevel2()

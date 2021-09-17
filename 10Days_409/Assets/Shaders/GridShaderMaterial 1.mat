@@ -26,5 +26,5 @@ Material:
     m_Floats:
     - _GridNum: 30
     m_Colors:
-    - _GridColor: {r: 0.26772827, g: 0, b: 1.9716918, a: 0}
+    - _GridColor: {r: 0.38103366, g: 0.040764537, b: 2.8806992, a: 0}
   m_BuildTextureStacks: []

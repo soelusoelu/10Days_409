@@ -4,59 +4,68 @@ using UnityEngine;
 
 public class RushEnemy_Level1_Move_Component : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed = 0.01f;
+    [SerializeField] private float _mMoveSpeed = 0.02f;
     [SerializeField] private float _mRotateTime = 3.0f;
+    [SerializeField] private float _mEscapeTime = 3.0f;
 
-    private Timer _mTimer;
+    [SerializeField] private GameObject _mPlayer;
 
-    [SerializeField] private Vector3 _mMoveTargetAngle;
+    private Timer _mEscapeTimer;
+    [SerializeField] private bool _mIsEscape;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        _mMoveTargetAngle = transform.localEulerAngles;
+        _mPlayer = GameObject.Find("Player");
 
-        _mTimer = new Timer();
-        _mTimer.SetLimitTime(_mRotateTime);
+        _mEscapeTimer = new Timer();
+        _mEscapeTimer.SetLimitTime(_mEscapeTime);
+
+        _mIsEscape = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _mTimer.Update();
+        if (_mPlayer == null) return;
 
-        if (_mTimer.IsTime())
+        transform.LookAt(_mPlayer.transform);
+        Move();
+
+        if (!_mIsEscape) return;
+
+        _mEscapeTimer.Update();
+        if (_mEscapeTimer.IsTime())
         {
-            _mTimer.Reset();
-            ChangeRotate();
-            return;
+            _mIsEscape = false;
         }
 
-        RotateUpdate();
-        Move();
+        Escape();
+
     }
 
-    void Move()
+    void Escape()
     {
         var vec = -transform.forward;
 
         var currentPos = transform.position;
 
-        currentPos += vec * _mMoveSpeed;
+        currentPos += vec * _mMoveSpeed * 2.0f;
 
         transform.position = currentPos;
     }
 
-    void RotateUpdate()
+    void Move()
     {
-        transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, _mMoveTargetAngle, Time.time);
+        var vec = transform.forward;
+
+        var currentPos = transform.position;
+
+        currentPos += vec * _mMoveSpeed * 2.0f;
+
+        transform.position = currentPos;
     }
 
-    void ChangeRotate()
-    {
-        var currentRotation = transform.localEulerAngles;
 
-        _mMoveTargetAngle = new Vector3(currentRotation.x, Random.Range(-120.0f, 120.0f),
-            currentRotation.z);
-    }
 }

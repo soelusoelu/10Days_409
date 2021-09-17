@@ -9,6 +9,7 @@ TagManager:
   - Explode
   - Enemy/BlockEnemy
   - Enemy/RushEnemy
+  - Enemy/ProtectionBlock
   layers:
   - Default
   - TransparentFX
