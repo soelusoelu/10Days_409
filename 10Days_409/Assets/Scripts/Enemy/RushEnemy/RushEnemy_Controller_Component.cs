@@ -28,6 +28,8 @@ public class RushEnemy_Controller_Component : MonoBehaviour
 
         _mEnemyDamage = GetComponent<Enemy_Damage>();
 
+        _mLevel.OnDead(Death);
+
 
         LevelChange();
 
@@ -102,6 +104,11 @@ public class RushEnemy_Controller_Component : MonoBehaviour
             _mLevel1MoveComponent = gameObject.AddComponent<RushEnemy_Level1_Move_Component>();
             ChangeLevel1();
         }
+    }
+
+    void Death()
+    {
+        Destroy(this.gameObject);
     }
 
     void ChangeLevel2()

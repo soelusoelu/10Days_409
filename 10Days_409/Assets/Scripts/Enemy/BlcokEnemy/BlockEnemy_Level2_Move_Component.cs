@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockEnemy_Level2_Move_Component : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed = 0.01f;
+    [SerializeField] private float _mMoveSpeed = 0.003f;
     [SerializeField] private float _mGenereateDefenceBlockSpeed = 1.0f;
 
     [SerializeField] private GameObject defenceBlockPrefab;

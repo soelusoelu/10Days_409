@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class BlockEnemy_Level3_Move_Component : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed = 0.006f;
-    [SerializeField] private float _mGenereateDefenceBlockSpeed = 1.0f;
+    [SerializeField] private float _mMoveSpeed = 0.003f;
+    [SerializeField] private float _mGenereateDefenceBlockSpeed = 3.0f;
 
     [SerializeField] private GameObject defenceBlockPrefab;
 
@@ -49,7 +49,7 @@ public class BlockEnemy_Level3_Move_Component : MonoBehaviour
         var prefab = GameObject.Instantiate(defenceBlockPrefab);
         Destroy(prefab, 3.0f); 
 
-        var setPosition = transform.position + -transform.forward * 10.0f;
+        var setPosition = transform.position + -transform.forward * 2.0f;
 
         Debug.Log("ê∂ê¨à íu:" + setPosition);
 
