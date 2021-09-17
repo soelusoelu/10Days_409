@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 9185855433906244137}
   m_Layer: 0
   m_Name: BlockEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy/BlockEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1251,3 +1251,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e91476a6710e61409bff78af0ac23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mOutArea: -2

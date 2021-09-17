@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - Bomb
   - Explode
+  - Enemy/BlockEnemy
+  - Enemy/RushEnemy
   layers:
   - Default
   - TransparentFX

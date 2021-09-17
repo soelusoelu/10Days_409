@@ -25,9 +25,7 @@ public class Bomb : MonoBehaviour
             var c = Instantiate(explosion);
             c.transform.position = transform.position;
 
-            if (onExplode != null) {
-                onExplode();
-            }
+            onExplode?.Invoke();
 
             Destroy(gameObject);
 
