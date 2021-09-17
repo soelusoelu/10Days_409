@@ -1,18 +1,15 @@
-Shader "Unlit/GridShader"
+Shader "Unlit/NauseaShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-		[HDR]_GridColor("Grid Colour", Color) = (255, 0, 0, 0)
-		_GridNum("Grid num", int) = 10
+		_Amp ("Amp", float) = 0.1
+		_T ("T", float) = 0.25
     }
     SubShader
     {
-        Tags 
-		{ 
-			"RenderType" = "Opaque"
-			//"LightMode" = "ShadowCaster"//îÌé ëÃê[ìxÇîΩâfÇ∑ÇÈÇΩÇﬂ
-		}
+		//No culling off ZTest Always
+		Cull Off ZWrite Off ZTest Always
         LOD 100
 
         Pass
@@ -39,9 +36,9 @@ Shader "Unlit/GridShader"
             };
 
             sampler2D _MainTex;
-			float4 _GridColor;
-			float _GridNum;
             float4 _MainTex_ST;
+			float _Amp;
+			float _T;
 
             v2f vert (appdata v)
             {
@@ -52,35 +49,13 @@ Shader "Unlit/GridShader"
                 return o;
             }
 
-			float GridTest(float2 r)
-			{
-				float result;
-				float gridnum = (_GridNum < 1) ? 1 : _GridNum;
-				gridnum = 1.0 / gridnum;
-
-				for (float i = 0.0; i < 1.0; i += gridnum)
-				{
-					for (int j = 0; j < 2; j++)
-					{
-						result += 1.0 - smoothstep(0.0, 0.004, abs(r[j] - i));
-					}
-				}
-
-				return result;
-			}
-
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
-                //fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                //UNITY_APPLY_FOG(i.fogCoord, col);
-                //return col;
-
-				//return float4(GridTest(i.uv), 0.0, 0.0, 0.0);
-
-				fixed4 gridColour = (_GridColor * GridTest(i.uv)) + tex2D(_MainTex, i.uv);
-				return float4(gridColour);
+				float2 uv = i.uv;
+				uv.x += sin((i.uv.y + _Time.y) * 3.14 / _T) * _Amp;
+				uv.y += sin((i.uv.x + _Time.y) * 3.14 / _T) * _Amp;
+				fixed4 col = tex2D(_MainTex, uv);
+				return col;
             }
             ENDCG
         }

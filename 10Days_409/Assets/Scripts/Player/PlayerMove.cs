@@ -43,7 +43,20 @@ public class PlayerMove : MonoBehaviour
 
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
-        transform.position += Vector3.right * h * speed * Time.deltaTime;
-        transform.position += Vector3.up * v * speed * Time.deltaTime;
+        transform.Translate(
+            h * speed * Time.deltaTime,
+            v * speed * Time.deltaTime,
+            0f
+        );
+
+        var cameraToPlayer = Mathf.Abs(transform.position.z - Camera.main.transform.position.z);
+
+        var topLeft = Camera.main.ScreenToWorldPoint(new Vector3(0f, 0f, cameraToPlayer));
+        var bottomRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cameraToPlayer));
+
+        var x = Mathf.Clamp(transform.position.x, topLeft.x, bottomRight.x);
+        var y = Mathf.Clamp(transform.position.y, topLeft.y, bottomRight.y);
+
+        transform.position = new Vector3(x, y, 0f);
     }
 }
