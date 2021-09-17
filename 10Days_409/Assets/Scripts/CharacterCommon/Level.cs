@@ -16,9 +16,7 @@ public class Level : MonoBehaviour
             ++level;
             Debug.Log("level up. current level " + level.ToString());
 
-            if (onUpdateLevel != null) {
-                onUpdateLevel();
-            }
+            onUpdateLevel?.Invoke();
         }
     }
 
@@ -26,9 +24,7 @@ public class Level : MonoBehaviour
         --level;
         Debug.Log("level down. current level " + level.ToString());
 
-        if (onUpdateLevel != null) {
-            onUpdateLevel();
-        }
+        onUpdateLevel?.Invoke();
 
         if (level <= 0) {
             Dead();
@@ -53,8 +49,6 @@ public class Level : MonoBehaviour
 
     private void Dead() {
         Debug.Log("dead.");
-        if (onDead != null) {
-            onDead();
-        }
+        onDead?.Invoke();
     }
 }
