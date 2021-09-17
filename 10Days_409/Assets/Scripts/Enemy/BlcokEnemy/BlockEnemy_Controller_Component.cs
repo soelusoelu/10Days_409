@@ -12,6 +12,7 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private Animator _mFaceAnimator;
     [SerializeField] private GameObject defenceBlockPrefab;
     [SerializeField] private GameObject _mlevel2_Body;
+    [SerializeField] private GameObject _mlevel1_Body;
 
     private Enemy_Damage _mEnemyDamage;
 
@@ -25,6 +26,8 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
         _mFaceAnimator = face.GetComponent<Animator>();
 
         _mEnemyDamage = GetComponent<Enemy_Damage>();
+
+        _mLevel.OnDead(Death);
 
         LevelChange();
     }
@@ -100,9 +103,15 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
         }
     }
 
+    void Death()
+    {
+        Destroy(this.gameObject);
+    }
+
     void ChangeLevel2()
     {
         _mlevel2_Body.SetActive(true);
+        _mlevel1_Body.SetActive(true);
 
         _mFaceAnimator.SetLayerWeight(1, 0.0f);
         _mFaceAnimator.SetLayerWeight(2, 1.0f);
@@ -112,6 +121,7 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     void ChangeLevel3()
     {
         _mlevel2_Body.SetActive(true);
+        _mlevel1_Body.SetActive(true);
 
         _mFaceAnimator.SetLayerWeight(1, 1.0f);
         _mFaceAnimator.SetLayerWeight(2, 0.0f);
@@ -122,6 +132,7 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     void ChangeLevel1()
     {
         _mlevel2_Body.SetActive(false);
+        _mlevel1_Body.SetActive(true);
 
         _mFaceAnimator.SetLayerWeight(1, 0.0f);
         _mFaceAnimator.SetLayerWeight(2, 0.0f);
