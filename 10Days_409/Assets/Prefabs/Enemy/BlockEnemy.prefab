@@ -1109,10 +1109,10 @@ GameObject:
   - component: {fileID: 8349322349061923038}
   - component: {fileID: 8296224624518733673}
   - component: {fileID: 9185855433906244137}
-  - component: {fileID: 71252631526489952}
+  - component: {fileID: 1720229276405146028}
   m_Layer: 0
   m_Name: BlockEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy/BlockEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1255,8 +1255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e91476a6710e61409bff78af0ac23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mOutArea: -5
---- !u!95 &71252631526489952
+  _mOutArea: -4
+--- !u!95 &1720229276405146028
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

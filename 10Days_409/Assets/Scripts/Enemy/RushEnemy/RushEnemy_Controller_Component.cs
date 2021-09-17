@@ -110,8 +110,8 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     void Death()
     {
         Destroy(this.gameObject);
-        GameObject.Instantiate(_mDeathParticle);
-        _mDeathParticle.transform.position = transform.position;
+        var particle = GameObject.Instantiate(_mDeathParticle);
+        particle.transform.position = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)

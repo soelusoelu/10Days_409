@@ -32,6 +32,10 @@ public class HitPoint : MonoBehaviour
         maxHp = amount;
     }
 
+    public void ResetHp() {
+        hp = maxHp;
+    }
+
     public int GetHp() {
         return hp;
     }
