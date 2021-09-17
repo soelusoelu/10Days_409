@@ -46,6 +46,12 @@ public class Enemy_Damage : MonoBehaviour
             Damage(damage);
             GameObject.Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "Explode")
+        {
+            var damage = other.gameObject.GetComponent<Damage>().GetDamage();
+            Damage(damage);
+        }
     }
 
 

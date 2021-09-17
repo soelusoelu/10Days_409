@@ -232,12 +232,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778375380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b68475f53a3bd94e85fc28d649b5af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderMaterial: {fileID: 2100000, guid: d00a99cce4c2fe045a6ef0b835e5ece6, type: 2}
+  _depth: 0.1
+  _near: 0.11
+  _middle: 0.1
+  _smoothOffset: 0.025
+  _shaderMaterial: {fileID: 2100000, guid: d00a99cce4c2fe045a6ef0b835e5ece6, type: 2}
 --- !u!114 &778375385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,10 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac75f78c20b9fd14d8155472dde802c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _iteration: 4
-  _threshold: 0.718
-  _softThreshold: 0
-  _intensity: 0.63
+  _iteration: 3
+  _threshold: 0.064
+  _softThreshold: 0.96
+  _intensity: 0.26
   _debug: 0
   _shaderMaterial: {fileID: 2100000, guid: 60aa98ecee309ee42b6e9eca49293863, type: 2}
 --- !u!1001 &813724109

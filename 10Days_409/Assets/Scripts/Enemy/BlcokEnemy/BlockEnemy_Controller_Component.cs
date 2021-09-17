@@ -110,6 +110,14 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Death();
+        }
+
+    }
 
     void ChangeLevel2()
     {

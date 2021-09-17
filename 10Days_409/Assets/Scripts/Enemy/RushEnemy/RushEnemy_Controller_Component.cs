@@ -114,6 +114,15 @@ public class RushEnemy_Controller_Component : MonoBehaviour
         _mDeathParticle.transform.position = transform.position;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Death();
+        }
+
+    }
+
     void ChangeLevel2()
     {
         _mLevel3Body.SetActive(false);
