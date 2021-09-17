@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class waveSystem : MonoBehaviour
+public class WaveSystem : MonoBehaviour
 {
     [SerializeField] private GameObject[] waves;
     private EnemyCreater enemyCreater;
@@ -53,7 +53,7 @@ public class waveSystem : MonoBehaviour
     private void ChangeWave() {
         ++currentIndex;
         if (currentIndex >= waves.Length) {
-            Debug.Log("all ended waves.");
+            Debug.Log("ended all waves.");
             onAllEndWave?.Invoke();
         } else {
             var newCreater = Instantiate(waves[currentIndex]);

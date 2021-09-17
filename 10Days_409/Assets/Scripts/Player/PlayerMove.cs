@@ -54,8 +54,8 @@ public class PlayerMove : MonoBehaviour
         var topLeft = Camera.main.ScreenToWorldPoint(new Vector3(0f, 0f, cameraToPlayer));
         var bottomRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cameraToPlayer));
 
-        var x = Mathf.Clamp(transform.position.x, topLeft.x, bottomRight.x);
-        var y = Mathf.Clamp(transform.position.y, topLeft.y, bottomRight.y);
+        var x = Mathf.Clamp(transform.position.x, topLeft.x + 1f, bottomRight.x - 1f);
+        var y = Mathf.Clamp(transform.position.y, topLeft.y + 1f, bottomRight.y - 1f);
 
         transform.position = new Vector3(x, y, 0f);
     }
