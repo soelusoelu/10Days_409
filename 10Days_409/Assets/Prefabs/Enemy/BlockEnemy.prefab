@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mShield: {fileID: 7677198680208206672}
+  _mDetectionTime: 1
 --- !u!1 &1976359975231118197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1108,7 @@ GameObject:
   - component: {fileID: 8349322349061923035}
   - component: {fileID: 8349322349061923038}
   - component: {fileID: 8296224624518733673}
+  - component: {fileID: 9185855433906244137}
   m_Layer: 0
   m_Name: BlockEnemy
   m_TagString: Untagged
@@ -1237,3 +1239,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAXHP: 3
   _mCurrentHP: 0
+--- !u!114 &9185855433906244137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349322349061923034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e91476a6710e61409bff78af0ac23b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
