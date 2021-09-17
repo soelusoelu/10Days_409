@@ -66,9 +66,9 @@ public class PostEffect_Bloom : MonoBehaviour
             currentSource = currentDest;
         }
 
-        // 最後にdestにBlit
+        // 最後にdestinationにBlit
         pathIndex = _debug ? 4 : 3;
         Graphics.Blit(currentSource, destination, _shaderMaterial, pathIndex);
-        RenderTexture.ReleaseTemporary(currentSource);
+        RenderTexture.ReleaseTemporary(currentSource);//テクスチャの開放
     }
 }
