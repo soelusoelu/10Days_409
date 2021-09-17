@@ -32,9 +32,7 @@ public class waveSystem : MonoBehaviour
 
             Debug.Log("enemys destroyed.");
 
-            if (onEndWave != null) {
-                onEndWave();
-            }
+            onEndWave?.Invoke();
 
             ChangeWave();
         }
@@ -56,9 +54,7 @@ public class waveSystem : MonoBehaviour
         ++currentIndex;
         if (currentIndex >= waves.Length) {
             Debug.Log("all ended waves.");
-            if (onAllEndWave != null) {
-                onAllEndWave();
-            }
+            onAllEndWave?.Invoke();
         } else {
             var newCreater = Instantiate(waves[currentIndex]);
             enemyCreater = newCreater.GetComponent<EnemyCreater>();
