@@ -22,6 +22,7 @@ public class Enemy_Damage : MonoBehaviour
         _mMainAnimator.Play("EnemyDamageAnimation");
         var particle = GameObject.Instantiate(_mDamageParticle);
         particle.transform.position = transform.position;
+        Destroy(particle, 3.0f);
     }
 
     private void Update()
