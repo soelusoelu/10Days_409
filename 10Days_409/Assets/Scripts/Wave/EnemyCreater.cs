@@ -5,15 +5,18 @@ using UnityEngine;
 public class EnemyCreater : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
+    [SerializeField] private Vector3[] enemysPosition;
     [SerializeField] private float[] nextCreateTimes;
     private List<GameObject> createdEnemys;
     private Timer timer;
+    [SerializeField] private float offsetEnemyPositionZ = 5f;
     private int currentIndex = 0;
     private bool isLastCreatedWave = false;
 
 
     private void Start() {
         Debug.Assert(enemys.Length == nextCreateTimes.Length);
+        Debug.Assert(enemys.Length == enemysPosition.Length);
 
         createdEnemys = new List<GameObject>();
         timer = new Timer();
@@ -41,6 +44,7 @@ public class EnemyCreater : MonoBehaviour
         }
 
         var newEnemy = Instantiate(enemys[currentIndex]);
+        newEnemy.transform.position = enemysPosition[currentIndex] + Vector3.forward * offsetEnemyPositionZ;
         createdEnemys.Add(newEnemy);
 
         ++currentIndex;
