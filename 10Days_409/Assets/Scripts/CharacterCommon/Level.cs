@@ -6,6 +6,7 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private int level = 1;
     [SerializeField] private int maxLevel = 3;
+
     public delegate void CallbackOnDead();
     private CallbackOnDead onDead;
     public delegate void CallbackOnUpdateLevel();

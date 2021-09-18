@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RushEnemy_Controller_Component : MonoBehaviour
 {
@@ -9,6 +10,15 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     private RushEnemy_Level3_Move_Component _mLevel3MoveComponent = null;
     private RushEnemy_Level2_Move_Component _mLevel2MoveComponent = null;
     private RushEnemy_Level1_Move_Component _mLevel1MoveComponent = null;
+
+    [SerializeField] private Transform clockHandTransform;
+    [SerializeField] private GameObject clockLevel3;
+    [SerializeField] private GameObject clockLevel2;
+    [SerializeField] private GameObject clockLevel1;
+
+     private Image currentClockImage;
+
+     [SerializeField] private Animator clockUiAnimator;
 
     [SerializeField] private GameObject _mLevel2Body;
     [SerializeField] private GameObject _mLevel3Body;
@@ -59,8 +69,20 @@ public class RushEnemy_Controller_Component : MonoBehaviour
                 return;
             }
 
+            // TODO:後でLV変わったアニメーション
             LevelChange();
+
         }
+
+        UpdateClockUI();
+    }
+
+    void UpdateClockUI()
+    {
+        float value = _mEnemyDamage.GetHP() / _mEnemyDamage.GetMaxHP();
+        clockHandTransform.eulerAngles = new Vector3(0, 0, 360.0f - (360 * value));
+
+        currentClockImage.fillAmount = value;
     }
 
 
@@ -94,17 +116,38 @@ public class RushEnemy_Controller_Component : MonoBehaviour
         {
             _mLevel3MoveComponent = gameObject.AddComponent<RushEnemy_Level3_Move_Component>();
             ChangeLevel3();
+
+            currentClockImage = clockLevel3.GetComponent<Image>();
+
+            clockLevel3.SetActive(true);
+            clockLevel2.SetActive(true);
+            clockLevel1.SetActive(true);
         }
         else if (currentLevel == 2)
         {
             _mLevel2MoveComponent = gameObject.AddComponent<RushEnemy_Level2_Move_Component>();
             ChangeLevel2();
+
+            currentClockImage = clockLevel2.GetComponent<Image>();
+
+            clockLevel3.SetActive(false);
+            clockLevel2.SetActive(true);
+            clockLevel1.SetActive(true);
         }
         else
         {
             _mLevel1MoveComponent = gameObject.AddComponent<RushEnemy_Level1_Move_Component>();
             ChangeLevel1();
+
+            currentClockImage = clockLevel1.GetComponent<Image>();
+
+            clockLevel3.SetActive(false);
+            clockLevel2.SetActive(false);
+            clockLevel1.SetActive(true);
         }
+
+
+        clockUiAnimator.Play("ClockUI_LevelChange_Animation");
     }
 
     void Death()

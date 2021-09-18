@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlockEnemy_Controller_Component : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject _mlevel2_Body;
     [SerializeField] private GameObject _mlevel1_Body;
     [SerializeField] private GameObject _mDeathParticle;
+
+    private Image currentClockImage;
+
+    [SerializeField] private Transform clockHandTransform;
+    [SerializeField] private Animator clockUiAnimator;
+    [SerializeField] private GameObject clockLevel3;
+    [SerializeField] private GameObject clockLevel2;
+    [SerializeField] private GameObject clockLevel1;
 
     private Enemy_Damage _mEnemyDamage;
 
@@ -58,6 +67,17 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
 
             LevelChange();
         }
+
+        UpdateClockUI();
+
+    }
+
+    private void UpdateClockUI()
+    {
+        float value = _mEnemyDamage.GetHP() / _mEnemyDamage.GetMaxHP();
+        clockHandTransform.eulerAngles = new Vector3(0, 0, 360.0f - (360 * value));
+
+        currentClockImage.fillAmount = value;
     }
 
 
@@ -91,17 +111,38 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
             _mLevel3MoveComponent = gameObject.AddComponent<BlockEnemy_Level3_Move_Component>();
             _mLevel3MoveComponent.SetDefenceBlockPrefab(defenceBlockPrefab);
             ChangeLevel3();
+
+            // Ç–Ç«Ç¢Ç±Å[Ç«
+            currentClockImage = clockLevel3.GetComponent<Image>();
+
+            clockLevel3.SetActive(true);
+            clockLevel2.SetActive(true);
+            clockLevel1.SetActive(true);
         }
         else if (currentLevel == 2)
         {
             _mLevel2MoveComponent = gameObject.AddComponent<BlockEnemy_Level2_Move_Component>();
             ChangeLevel2();
+
+            currentClockImage = clockLevel2.GetComponent<Image>();
+
+            clockLevel3.SetActive(false);
+            clockLevel2.SetActive(true);
+            clockLevel1.SetActive(true);
         }
         else
         {
             _mLevel1MoveComponent = gameObject.AddComponent<BlockEnemy_Level1_Move_Component>();
             ChangeLevel1();
+
+            currentClockImage = clockLevel1.GetComponent<Image>();
+
+            clockLevel3.SetActive(false);
+            clockLevel2.SetActive(false);
+            clockLevel1.SetActive(true);
         }
+
+        clockUiAnimator.Play("ClockUI_LevelChange_Animation");
     }
 
     void Death()
