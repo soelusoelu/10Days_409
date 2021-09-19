@@ -7,12 +7,11 @@ public class EnemyCreater : MonoBehaviour
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private Vector3[] enemysPosition;
     [SerializeField] private float[] nextCreateTimes;
+    [SerializeField] private float offsetEnemyPositionZ = 5f;
     private List<GameObject> createdEnemys;
     private Timer timer;
-    [SerializeField] private float offsetEnemyPositionZ = 5f;
     private int currentIndex = 0;
     private bool isLastCreatedWave = false;
-
 
     private void Start() {
         Debug.Assert(enemys.Length == nextCreateTimes.Length);
@@ -50,7 +49,6 @@ public class EnemyCreater : MonoBehaviour
         ++currentIndex;
         if (currentIndex >= enemys.Length) {
             isLastCreatedWave = true;
-            Debug.Log("last created.");
             return;
         }
 

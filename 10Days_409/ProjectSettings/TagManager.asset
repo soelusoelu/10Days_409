@@ -10,6 +10,7 @@ TagManager:
   - Enemy/BlockEnemy
   - Enemy/RushEnemy
   - Enemy/ProtectionBlock
+  - Item/LevelUpItem
   layers:
   - Default
   - TransparentFX

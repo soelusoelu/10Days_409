@@ -30,8 +30,6 @@ public class PlayerLevelController : MonoBehaviour
             optionManager.StartPerformance();
         } else if (nextLevel == 3) {
 
-        } else {
-            Debug.Assert(false);
         }
     }
 }
