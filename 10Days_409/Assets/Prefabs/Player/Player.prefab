@@ -459,8 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0caa74afad8a2c4ca4accf6a173a1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  maxHp: 100
+  hp: 3
 --- !u!114 &2037375903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b79ef756dca164cb32fd51610740a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takeDamageAmount: 10
+  takeDamageAmount: 1
 --- !u!114 &282631141
 MonoBehaviour:
   m_ObjectHideFlags: 0

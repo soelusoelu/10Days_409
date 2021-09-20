@@ -5,9 +5,13 @@ using UnityEngine;
 public class HitPoint : MonoBehaviour
 {
     [SerializeField] private int hp = 100;
-    [SerializeField] private int maxHp = 100;
+    private int maxHp;
     public delegate void CallbackOnUpdateHp(HitPoint hp);
     private CallbackOnUpdateHp onUpdateHp;
+
+    public void Start() {
+        maxHp = hp;
+    }
 
     public void TakeDamage(int amount) {
         hp -= amount;
