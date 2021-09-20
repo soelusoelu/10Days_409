@@ -51,7 +51,7 @@ public class BlockEnemy_Level3_Move_Component : MonoBehaviour
 
         var setPosition = transform.position + -transform.forward * 2.0f;
 
-        Debug.Log("ê∂ê¨à íu:" + setPosition);
+        //Debug.Log("ê∂ê¨à íu:" + setPosition);
 
         prefab.transform.position = setPosition;
     }
