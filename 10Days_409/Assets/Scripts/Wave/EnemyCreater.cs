@@ -7,12 +7,13 @@ public class EnemyCreater : MonoBehaviour
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private Vector3[] enemysPosition;
     [SerializeField] private float[] nextCreateTimes;
+    [SerializeField] private float offsetEnemyPositionZ = 5f;
     private List<GameObject> createdEnemys;
     private Timer timer;
-    [SerializeField] private float offsetEnemyPositionZ = 5f;
     private int currentIndex = 0;
     private bool isLastCreatedWave = false;
-
+    public delegate void CallbackOnDeadEnemy();
+    private CallbackOnDeadEnemy onDeadEnemy;
 
     private void Start() {
         Debug.Assert(enemys.Length == nextCreateTimes.Length);
@@ -29,12 +30,14 @@ public class EnemyCreater : MonoBehaviour
     }
 
     private void Update() {
-        if (isLastCreatedWave) {
-            for (int i = 0; i < createdEnemys.Count; i++) {
-                if (createdEnemys[i] == null) {
-                    createdEnemys.RemoveAt(i);
-                }
+        for (int i = 0; i < createdEnemys.Count; i++) {
+            if (createdEnemys[i] == null) {
+                onDeadEnemy?.Invoke();
+                createdEnemys.RemoveAt(i);
             }
+        }
+
+        if (isLastCreatedWave) {
             return;
         }
 
@@ -50,7 +53,6 @@ public class EnemyCreater : MonoBehaviour
         ++currentIndex;
         if (currentIndex >= enemys.Length) {
             isLastCreatedWave = true;
-            Debug.Log("last created.");
             return;
         }
 
@@ -65,5 +67,9 @@ public class EnemyCreater : MonoBehaviour
 
     public bool CreatedLastEnemy() {
         return isLastCreatedWave;
+    }
+
+    public void OnDeadEnemy(CallbackOnDeadEnemy f) {
+        onDeadEnemy += f;
     }
 }

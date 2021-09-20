@@ -22,15 +22,23 @@ public class Bomb : MonoBehaviour
 
         explosionTimer.Update();
         if (explosionTimer.IsTime()) {
-            var c = Instantiate(explosion);
-            c.transform.position = transform.position;
-
-            onExplode?.Invoke();
-
-            Destroy(gameObject);
-
-            Debug.Log("explode");
+            Explode();
         }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag.StartsWith("Enemy/")) {
+            Explode();
+        }
+    }
+
+    private void Explode() {
+        var c = Instantiate(explosion);
+        c.transform.position = transform.position;
+
+        onExplode?.Invoke();
+
+        Destroy(gameObject);
     }
 
     public void OnExplode(CallbackOnExplode f) {

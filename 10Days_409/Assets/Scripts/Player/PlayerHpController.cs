@@ -6,9 +6,12 @@ public class PlayerHpController : MonoBehaviour
 {
     [SerializeField] private int takeDamageAmount = 10;
     private HitPoint hp;
+    private Level level;
 
     private void Start() {
         hp = GetComponent<HitPoint>();
+        level = GetComponent<Level>();
+        level.OnDead(Dead);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -17,6 +20,16 @@ public class PlayerHpController : MonoBehaviour
         }
 
         hp.TakeDamage(takeDamageAmount);
-        Debug.Log("player take damage.");
+        if (hp.GetHp() <= 0) {
+            level.LevelDown();
+
+            if (level.GetLevel() != 0) {
+                hp.ResetHp();
+            }
+        }
+    }
+
+    private void Dead() {
+        Destroy(gameObject);
     }
 }
