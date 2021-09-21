@@ -159,6 +159,11 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
             Death();
         }
 
+        if (other.gameObject.tag == "LevelUpItem")
+        {
+            _mLevel.LevelUp();
+            LevelChange();
+        }
     }
 
     void ChangeLevel2()

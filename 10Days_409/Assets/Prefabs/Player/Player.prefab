@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7261120514450485098, guid: c354b2ec86261c0438d5c2a60301a066, type: 3}
-  reshotInterval: 0.25
+  reshotInterval: 0.1
 --- !u!114 &7248380948554987287
 MonoBehaviour:
   m_ObjectHideFlags: 0
