@@ -17,6 +17,7 @@ public class BossEnemyControllerComponent : MonoBehaviour
 
     [SerializeField] private GameObject _mEnemyObstacleCubePrefab;
     [SerializeField] private GameObject _mEnemyBulletPrefab;
+    [SerializeField] private GameObject _mBossGhostPrefab;
 
 
     private Image currentClockImage;
@@ -121,6 +122,8 @@ public class BossEnemyControllerComponent : MonoBehaviour
         {
             ChangeLevel1();
             _mLevel1MoveComponent = gameObject.AddComponent<BossEnemy_Level1_Move_Component>();
+            _mLevel1MoveComponent.SetBulletPrefab(_mEnemyBulletPrefab);
+            _mLevel1MoveComponent.SetGhostPrefab(_mBossGhostPrefab);
 
 
             currentClockImage = clockLevel1.GetComponent<Image>();
@@ -149,6 +152,11 @@ public class BossEnemyControllerComponent : MonoBehaviour
             Death();
         }
 
+        if (other.gameObject.tag == "LevelUpItem")
+        {
+            _mLevel.LevelUp();
+            LevelChange();
+        }
     }
 
     void ChangeLevel2()

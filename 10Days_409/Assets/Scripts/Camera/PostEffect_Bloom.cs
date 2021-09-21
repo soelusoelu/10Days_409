@@ -10,6 +10,7 @@ public class PostEffect_Bloom : MonoBehaviour
     [SerializeField, Range(0.0f, 1.0f)] private float _softThreshold = 0.0f;
     [SerializeField, Range(0.0f, 10.0f)] private float _intensity = 1.0f;
     [SerializeField] bool _debug;
+    
 
     //4・をサンプリングして色を作るマテリアル
     [SerializeField] private Material _shaderMaterial;
@@ -47,7 +48,7 @@ public class PostEffect_Bloom : MonoBehaviour
             currentDest = _renderTextures[i] = RenderTexture.GetTemporary(width, height, 0, source.format);
 
             // 最初の一回は明度抽出用のパスを使ってダウンサンプリングする
-            pathIndex = i == 0 ? 0 : 1;
+            pathIndex = (i == 0) ? 0 : 1;
             Graphics.Blit(currentSource, currentDest, _shaderMaterial, pathIndex);
 
             currentSource = currentDest;

@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943214f87ec954742b92b6d8576ac3fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mMaxHP: 30
+  _mMaxHP: 10
   _mCurrentHP: 0
   _mMainAnimator: {fileID: 0}
   _mDamageParticle: {fileID: 2161207403206307119, guid: 332b53774c2e291449500a6bda442ffc, type: 3}

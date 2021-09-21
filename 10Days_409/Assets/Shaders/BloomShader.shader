@@ -30,6 +30,8 @@ Shader "Unlit/BloomShader"
         sampler2D _MainTex;
         float4 _MainTex_ST;
 		float4 _MainTex_TexelSize;
+		sampler2D _CameraDepthTexture;
+		float4 _CameraDepthTexture_ST;
 		sampler2D _SourceTex;
 		half4 _FilterParams;
 		float _Intensity;
@@ -73,9 +75,10 @@ Shader "Unlit/BloomShader"
 		Pass
 		{
 			CGPROGRAM
-			//光度の高い色を抽出
+			
 			fixed4 frag(v2f i) : SV_Target
 			{
+				//光度の高い色を抽出
 				half4 col = 1;
 				col.rgb = sampleBox(i.uv, 1.0);
 				half brightness = getBrightness(col.rgb);
