@@ -46,6 +46,8 @@ Shader "Unlit/PostEffectShader_Test"
 		float _Far;//farの距離
 		float _SmoothOffset;//スムースステップの境界
 		float _PickCount;//for文を回す量
+		float _WeakPick;//弱いピック数
+		float _StrongPick;//強いピック数
 
         v2f vert (appdata v)
         {
@@ -99,7 +101,7 @@ Shader "Unlit/PostEffectShader_Test"
 				float4 color = fixed4(0, 0, 0, 0);
 				float2 pick = float2(0, 0);
 				//強い 0.05 弱い0.03
-				float pickRange = (near > middle) ? 0 : (middle > far) ? 0.03 : 0.05;
+				float pickRange = (near > middle) ? 0 : (middle > far) ? _WeakPick : _StrongPick;
 				
 				[loop]
 				for (pick.y = -pickRange; pick.y <= pickRange; pick.y += _PickCount)

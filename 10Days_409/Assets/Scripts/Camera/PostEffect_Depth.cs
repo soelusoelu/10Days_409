@@ -10,6 +10,9 @@ public class PostEffect_Depth : MonoBehaviour
     [SerializeField, Range(0.0f, 1.0f)] private float _far = 0.8f;//farの値
     [SerializeField, Range(0.0f, 1.0f)] private float _smoothOffset = 0.03f;//スムースステップの境界
     [SerializeField, Range(0.01f, 1.00f)] private float _pickCount = 0.1f;//for文を回す量
+    [SerializeField, Range(0.01f, 1.00f)] private float _weakPick = 0.03f;//弱いピック数
+    [SerializeField, Range(0.01f, 1.00f)] private float _strongPick = 0.05f;//強いピック数
+
 
 
     [SerializeField] private Material _shaderMaterial;
@@ -36,6 +39,8 @@ public class PostEffect_Depth : MonoBehaviour
         _shaderMaterial.SetFloat("_Far", _far);
         _shaderMaterial.SetFloat("_SmoothOffset", _smoothOffset);
         _shaderMaterial.SetFloat("_PickCount", _pickCount);
+        _shaderMaterial.SetFloat("_WeakPick", _weakPick);
+        _shaderMaterial.SetFloat("_StrongPick", _strongPick);
 
 
         _shaderMaterial.SetTexture("_NormalTex", normal);//_NormalTexにnormalを入れる

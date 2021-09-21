@@ -1268,7 +1268,9 @@ MonoBehaviour:
   _near: 0.02
   _far: 0.06
   _smoothOffset: 0.015
-  _pickCount: 0.1
+  _pickCount: 0.01
+  _weakPick: 0.03
+  _strongPick: 0.05
   _shaderMaterial: {fileID: 2100000, guid: d00a99cce4c2fe045a6ef0b835e5ece6, type: 2}
 --- !u!114 &1828430146
 MonoBehaviour:
