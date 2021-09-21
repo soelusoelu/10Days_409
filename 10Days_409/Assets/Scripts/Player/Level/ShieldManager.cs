@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class ShieldManager : MonoBehaviour
 {
-    private List<Shield> shields;
+    private Shield[] shields;
 
     private void Start() {
-        shields = new List<Shield>();
-        var child = transform.GetChild(0);
-        shields.Add(child.GetComponent<Shield>());
-        var child2 = child.GetChild(0);
-        shields.Add(child2.GetComponent<Shield>());
-        var child3 = child2.GetChild(0);
-        shields.Add(child3.GetComponent<Shield>());
+        int childCount = transform.childCount;
+        shields = new Shield[childCount];
+        for (int i = 0; i < childCount; i++) {
+            shields[i] = transform.GetChild(i).GetComponent<Shield>();
+        }
     }
 
     public void StartPerformance() {
