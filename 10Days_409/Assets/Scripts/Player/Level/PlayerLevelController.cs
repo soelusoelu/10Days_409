@@ -6,6 +6,8 @@ public class PlayerLevelController : MonoBehaviour
 {
     private Level level;
     private OptionShooterManager optionManager;
+    private ShieldManager shieldManager;
+    private List<Shield> shields;
     private int currentLevel = 0;
 
     private void Start() {
@@ -14,6 +16,7 @@ public class PlayerLevelController : MonoBehaviour
         currentLevel = level.GetLevel();
 
         optionManager = transform.GetChild(0).GetComponent<OptionShooterManager>();
+        shieldManager = transform.GetChild(1).GetComponent<ShieldManager>();
     }
 
     private void Update() {
@@ -43,7 +46,7 @@ public class PlayerLevelController : MonoBehaviour
         
         if (nextLevel == 3) {
             if (currentLevel == 2) {
-
+                shieldManager.StartPerformance();
             }
         }
 

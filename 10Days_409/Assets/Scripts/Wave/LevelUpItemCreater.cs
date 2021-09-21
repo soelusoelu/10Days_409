@@ -5,45 +5,36 @@ using UnityEngine;
 public class LevelUpItemCreater : MonoBehaviour
 {
     [SerializeField] private GameObject levelUpItem;
-    [SerializeField] private Vector3[] itemPosition;
-    [SerializeField] private float[] nextCreateTimes;
-    [SerializeField] private float offsetItemPositionZ = 5f;
-    private Timer timer;
-    private int currentIndex = 0;
-    private bool isLastCreated = false;
+    [SerializeField] private Level playerLevel;
+    [SerializeField] private float createInterval = 5f;
+    [SerializeField] private float randomTime = 1f;
+    [SerializeField] private float createPositionZ = 30f;
+    private Timer createTimer;
 
     private void Start() {
-        Debug.Assert(itemPosition.Length == nextCreateTimes.Length);
-
-        timer = new Timer();
-
-        if (itemPosition.Length > 0) {
-            timer.SetLimitTime(nextCreateTimes[currentIndex]);
-        } else {
-            isLastCreated = true;
-        }
+        createTimer = new Timer();
+        SetCreateTime();
     }
 
     private void Update() {
-        if (isLastCreated) {
+        if (playerLevel.GetLevel() >= playerLevel.GetMaxLevel()) {
             return;
         }
 
-        timer.Update();
-        if (!timer.IsTime()) {
-            return;
-        }
+        createTimer.Update();
+        if (createTimer.IsTime()) {
+            createTimer.Reset();
+            SetCreateTime();
 
-        var newItem = Instantiate(levelUpItem);
-        newItem.transform.position = itemPosition[currentIndex] + Vector3.forward * offsetItemPositionZ;
-
-        ++currentIndex;
-        if (currentIndex < itemPosition.Length) {
-            var t = nextCreateTimes[currentIndex];
-            timer.SetLimitTime(t);
-            timer.Reset();
-        } else {
-            isLastCreated = true;
+            var newItem = Instantiate(levelUpItem);
+            float x = Random.Range(-5f, 5f);
+            float y = Random.Range(-3f, 3f);
+            newItem.transform.position = new Vector3(x, y, createPositionZ);
         }
+    }
+
+    private void SetCreateTime() {
+        float time =  Random.Range(createInterval - randomTime, createInterval + randomTime);
+        createTimer.SetLimitTime(time);
     }
 }
