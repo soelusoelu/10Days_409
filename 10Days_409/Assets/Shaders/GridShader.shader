@@ -12,6 +12,7 @@ Shader "Unlit/GridShader"
 		{ 
 			"RenderType" = "Opaque"
 			//"LightMode" = "ShadowCaster"//”íÊ‘Ì[“x‚ğ”½‰f‚·‚é‚½‚ß
+			//"LightMode" = "Always"
 		}
         LOD 100
 
