@@ -14,6 +14,11 @@ public class BombShooter : MonoBehaviour
         timer.Overlimit();
     }
 
+    public float GetShotRatio()
+    {
+        return timer.Rate();
+    }
+
     void Update() {
         timer.Update();
 
