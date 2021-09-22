@@ -19,14 +19,6 @@ public class PlayerLevelController : MonoBehaviour
         shieldManager = transform.GetChild(1).GetComponent<ShieldManager>();
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            level.LevelUp();
-        } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
-            level.LevelDown();
-        }
-    }
-
     private void ChangeLevel() {
         int nextLevel = level.GetLevel();
 
@@ -39,8 +31,6 @@ public class PlayerLevelController : MonoBehaviour
         if (nextLevel == 2) {
             if (currentLevel == 1) {
                 optionManager.StartPerformance();
-            } else if (currentLevel == 3) {
-
             }
         } 
         

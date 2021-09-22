@@ -12,6 +12,7 @@ TagManager:
   - Enemy/ProtectionBlock
   - Item/LevelUpItem
   - Player/Shield
+  - Enemy/Boss
   layers:
   - Default
   - TransparentFX

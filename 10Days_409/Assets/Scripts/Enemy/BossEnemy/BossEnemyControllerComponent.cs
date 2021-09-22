@@ -139,7 +139,8 @@ public class BossEnemyControllerComponent : MonoBehaviour
 
     void Death()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        EnemyDestroyer.DestroyEnemy(gameObject);
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
         Destroy(particle, 3.0f);
