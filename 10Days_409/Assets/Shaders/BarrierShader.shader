@@ -77,6 +77,13 @@ Shader "Unlit/BarrierShader"
 			return col;
 		}
 
+		fixed4 f2(v2f i)
+		{
+			fixed4 col = _Color;
+			col.a = 0.5;
+			return  col;
+		}
+
 		
 		ENDCG//‚±‚±‚Ü‚Å‹¤—L
 		Pass
@@ -86,7 +93,7 @@ Shader "Unlit/BarrierShader"
 			CGPROGRAM
 			fixed4 frag(v2f i) : SV_Target
 			{
-				return f(i);
+				return f2(i);
 			}
 			ENDCG
 		}
