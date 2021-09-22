@@ -8,7 +8,7 @@ public class EnemyCreater : MonoBehaviour
     [SerializeField] private Vector3[] enemysPosition;
     [SerializeField] private float[] nextCreateTimes;
     [SerializeField] private float offsetEnemyPositionZ = 5f;
-    private int createdEnemyCount = 0;
+    private List<GameObject> createdEnemys;
     private Timer timer;
     private int currentIndex = 0;
     private bool isLastCreatedWave = false;
@@ -17,6 +17,7 @@ public class EnemyCreater : MonoBehaviour
         Debug.Assert(enemys.Length == nextCreateTimes.Length);
         Debug.Assert(enemys.Length == enemysPosition.Length);
 
+        createdEnemys = new List<GameObject>();
         timer = new Timer();
 
         if (enemys.Length > 0) {
@@ -40,7 +41,7 @@ public class EnemyCreater : MonoBehaviour
 
         var newEnemy = Instantiate(enemys[currentIndex]);
         newEnemy.transform.position = enemysPosition[currentIndex] + Vector3.forward * offsetEnemyPositionZ;
-        ++createdEnemyCount;
+        createdEnemys.Add(newEnemy);
 
         ++currentIndex;
         if (currentIndex >= enemys.Length) {
@@ -54,7 +55,7 @@ public class EnemyCreater : MonoBehaviour
     }
 
     public bool IsDestroyedEnemys() {
-        return (createdEnemyCount == 0);
+        return (createdEnemys.Count == 0);
     }
 
     public bool CreatedLastEnemy() {
@@ -62,6 +63,7 @@ public class EnemyCreater : MonoBehaviour
     }
 
     private void RemoveEnemy(GameObject enemy, bool outOfArea) {
-        --createdEnemyCount;
+        createdEnemys.Remove(enemy);
+        Debug.Log("created enemy count: " + createdEnemys.Count);
     }
 }

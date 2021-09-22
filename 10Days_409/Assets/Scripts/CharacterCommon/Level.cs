@@ -15,7 +15,6 @@ public class Level : MonoBehaviour
     public void LevelUp() {
         if (level < maxLevel) {
             ++level;
-            Debug.Log("level up. current level " + level.ToString());
 
             onUpdateLevel?.Invoke();
         }
@@ -23,9 +22,9 @@ public class Level : MonoBehaviour
 
     public void LevelDown() {
         --level;
-        Debug.Log("level down. current level " + level.ToString());
 
         onUpdateLevel?.Invoke();
+        Debug.Log("level: " + level);
 
         if (level <= 0) {
             Dead();
@@ -49,7 +48,6 @@ public class Level : MonoBehaviour
     }
 
     private void Dead() {
-        Debug.Log("dead.");
         onDead?.Invoke();
     }
 }

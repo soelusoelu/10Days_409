@@ -47,12 +47,39 @@ MonoBehaviour:
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 2387385495829861682, guid: 897c6613eccada44aa0d0b5b369d4d4e, type: 3}
   enemysPosition:
   - {x: 3, y: 0, z: 0}
   - {x: -3, y: 0, z: 0}
   - {x: 0, y: 2, z: 0}
+  - {x: 3, y: 0, z: 0}
+  - {x: -3, y: 0, z: 0}
+  - {x: -3, y: 0, z: 0}
+  - {x: -2, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 3, y: 0, z: 0}
+  - {x: 4, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
   nextCreateTimes:
   - 1
   - 3
   - 3
+  - 6
+  - 6
+  - 6
+  - 12
+  - 13
+  - 14
+  - 16
+  - 17
+  - 18
   offsetEnemyPositionZ: 30
