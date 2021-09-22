@@ -28,7 +28,7 @@ public class LevelUpItemCreater : MonoBehaviour
 
             var newItem = Instantiate(levelUpItem);
             float x = Random.Range(-5f, 5f);
-            float y = Random.Range(-3f, 3f);
+            float y = Random.Range(0f, 3f);
             newItem.transform.position = new Vector3(x, y, createPositionZ);
         }
     }
