@@ -49,4 +49,4 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   nextCreateTimes:
   - 0
-  offsetEnemyPositionZ: 10
+  offsetEnemyPositionZ: 5

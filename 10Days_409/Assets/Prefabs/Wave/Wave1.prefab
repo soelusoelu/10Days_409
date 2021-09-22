@@ -119,3 +119,4 @@ MonoBehaviour:
   - 12
   - 12
   offsetEnemyPositionZ: 50
+  score: {fileID: 7240055256728487711, guid: 2a887b22e3dc169438f036f627f77187, type: 3}

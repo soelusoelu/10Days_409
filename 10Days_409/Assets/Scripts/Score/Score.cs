@@ -7,34 +7,46 @@ public class Score : MonoBehaviour
     [SerializeField] private int rushEnemyScore = 100;
     [SerializeField] private int blockEnemyScore = 150;
     [SerializeField] private int bossScore = 1000;
+    [SerializeField] private float scoreAddTime = 0.5f;
+    [SerializeField] private int addTimeScore = 1;
+    private Timer timer;
     private int score;
 
     private void Start() {
-        EnemyDestroyer.OnDestroyEnemy(DeadEnemy);
+        timer = new Timer();
+        timer.SetLimitTime(scoreAddTime);
+    }
+
+    private void Update() {
+        timer.Update();
+        if (timer.IsTime()) {
+            timer.Reset();
+            AddScore(addTimeScore);
+        }
     }
 
     public void AddScore(int amount) {
         score += amount;
     }
 
-    public int GetScore() {
-        return score;
-    }
-
-    private void DeadEnemy(GameObject enemy, bool outOfArea) {
-        if (outOfArea) {
+    public void AddScore(string tag, float posZ) {
+        if (posZ < -1f) {
             return;
         }
 
         int score = 0;
-        if (enemy.tag == "Enemy/RushEnemy") {
+        if (tag == "Enemy/RushEnemy") {
             score = rushEnemyScore;
-        } else if (enemy.tag == "Enemy/BlockEnemy") {
+        } else if (tag == "Enemy/BlockEnemy") {
             score = blockEnemyScore;
-        } else if (enemy.tag == "Enemy/Boss") {
+        } else if (tag == "Enemy/Boss") {
             score = bossScore;
         }
 
         AddScore(score);
+    }
+
+    public int GetScore() {
+        return score;
     }
 }

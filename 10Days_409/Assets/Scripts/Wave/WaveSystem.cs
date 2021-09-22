@@ -10,6 +10,7 @@ public class WaveSystem : MonoBehaviour
     public delegate void CallbackOnEndWave();
     private CallbackOnEndWave onEndWave;
     private CallbackOnEndWave onAllEndWave;
+    private bool isEnd = false;
 
     private void Start() {
         var newWave = waves[currentIndex];
@@ -21,15 +22,14 @@ public class WaveSystem : MonoBehaviour
     }
 
     private void Update() {
+        if (isEnd) {
+            return;
+        }
         if (!enemyCreater.CreatedLastEnemy()) {
             return;
         }
 
         if (enemyCreater.IsDestroyedEnemys()) {
-            if (currentIndex == waves.Length) {
-                return;
-            }
-
             Debug.Log("enemys destroyed.");
 
             onEndWave?.Invoke();
@@ -55,6 +55,8 @@ public class WaveSystem : MonoBehaviour
         if (currentIndex >= waves.Length) {
             Debug.Log("ended all waves.");
             onAllEndWave?.Invoke();
+            isEnd = true;
+            --currentIndex;
         } else {
             var newCreater = Instantiate(waves[currentIndex]);
             enemyCreater = newCreater.GetComponent<EnemyCreater>();

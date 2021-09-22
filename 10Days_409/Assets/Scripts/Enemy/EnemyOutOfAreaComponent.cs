@@ -17,8 +17,7 @@ public class EnemyOutOfAreaComponent : MonoBehaviour
     {
         if (IsOutofArea())
         {
-            //Destroy(gameObject);
-            EnemyDestroyer.DestroyEnemy(gameObject, true);
+            Destroy(gameObject);
         }
     }
 

@@ -145,11 +145,8 @@ public class BossEnemyControllerComponent : MonoBehaviour
 
     void Death()
     {
-        EnemyDestroyer.DestroyEnemy(gameObject);
-        CreateParticle();
-    }
+        Destroy(gameObject);
 
-    void CreateParticle() {
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
         Destroy(particle, 3.0f);
@@ -162,8 +159,7 @@ public class BossEnemyControllerComponent : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            EnemyDestroyer.DestroyEnemy(gameObject, true);
-            CreateParticle();
+            Death();
         }
 
         if (other.gameObject.tag == "LevelUpItem")
