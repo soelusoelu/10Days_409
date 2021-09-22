@@ -166,7 +166,7 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(this.gameObject);
+            EnemyDestroyer.DestroyEnemy(gameObject, true);
             CreateParticle();
         }
 
