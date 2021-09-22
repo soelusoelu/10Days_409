@@ -15,6 +15,9 @@ public class BossEnemyControllerComponent : MonoBehaviour
     [SerializeField] private GameObject clockLevel2;
     [SerializeField] private GameObject clockLevel1;
 
+    [SerializeField] private GameObject _explosionSoundGameObject;
+
+
     [SerializeField] private GameObject _mEnemyObstacleCubePrefab;
     [SerializeField] private GameObject _mEnemyBulletPrefab;
     [SerializeField] private GameObject _mBossGhostPrefab;
@@ -37,6 +40,9 @@ public class BossEnemyControllerComponent : MonoBehaviour
         _mEnemyDamage = GetComponent<Enemy_Damage>();
         _mLevel.OnDead(Death);
         LevelChange();
+
+        var bgm = GameObject.Find("BGM").GetComponent<BgmControllerScript>();
+        bgm.SetPlayMode(BgmControllerScript.BGM_PlayMode.PlayMode_Boss);
     }
 
     // Update is called once per frame
@@ -147,6 +153,9 @@ public class BossEnemyControllerComponent : MonoBehaviour
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
         Destroy(particle, 3.0f);
+
+        var expSound = Instantiate(_explosionSoundGameObject);
+        Destroy(expSound, 10.0f);
     }
 
     private void OnTriggerEnter(Collider other)

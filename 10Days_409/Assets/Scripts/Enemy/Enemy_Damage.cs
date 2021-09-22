@@ -7,6 +7,8 @@ public class Enemy_Damage : MonoBehaviour
     [SerializeField] private Animator _mMainAnimator;
     [SerializeField] private GameObject _mDamageParticle;
 
+    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private AudioClip _DamageAudioClip;
 
     public float GetHP()
     {
@@ -24,6 +26,9 @@ public class Enemy_Damage : MonoBehaviour
         _mCurrentHP = _mMaxHP;
 
         _mMainAnimator = GetComponent<Animator>();
+
+        _AudioSource = GetComponent<AudioSource>();
+
     }
 
     private void Damage(float damage)
@@ -56,6 +61,9 @@ public class Enemy_Damage : MonoBehaviour
             var damage = other.gameObject.GetComponent<Damage>().GetDamage();
             Damage(damage);
             GameObject.Destroy(other.gameObject);
+
+            _AudioSource.PlayOneShot(_DamageAudioClip);
+
         }
 
         if (other.gameObject.tag == "Explode")

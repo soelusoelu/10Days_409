@@ -16,6 +16,8 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject _mlevel1_Body;
     [SerializeField] private GameObject _mDeathParticle;
 
+    [SerializeField] private GameObject _explosionSoundGameObject;
+
     private Image currentClockImage;
 
     [SerializeField] private Transform clockHandTransform;
@@ -31,6 +33,19 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     {
         _mLevel = GetComponent<Level>();
         _mLevel.OnUpdateLevel(LevelChange);
+
+        int isVariation = Random.Range(0, 30);
+
+        // �ψٌ^
+        if (isVariation == 0)
+        {
+            int downLevel = Random.Range(1, 2);
+
+            for (int i = 0; i < downLevel; ++i)
+            {
+                _mLevel.LevelDown();
+            }
+        }
 
         GameObject face = transform.Find("Face").gameObject;
         _mFaceAnimator = face.GetComponent<Animator>();
@@ -154,7 +169,9 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
     void CreateParticle() {
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
-        Destroy(particle, 3.0f);
+
+        var expSound = Instantiate(_explosionSoundGameObject);
+        Destroy(expSound, 10.0f);
     }
 
     private void OnTriggerEnter(Collider other)

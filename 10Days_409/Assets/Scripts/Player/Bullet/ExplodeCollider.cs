@@ -7,6 +7,9 @@ public class ExplodeCollider : MonoBehaviour
     [SerializeField] private GameObject particle;
     [SerializeField] private float explodeRange = 6f;
     [SerializeField] private int waitFrames = 1;
+
+    [SerializeField] private GameObject _explosionSoundGameObject;
+
     private SphereCollider sphere = null;
     private int previousIndex = 0;
 
@@ -17,6 +20,9 @@ public class ExplodeCollider : MonoBehaviour
         var p = Instantiate(particle);
         p.transform.position = transform.position;
         Destroy(p, 10f);
+
+        var expSound = Instantiate(_explosionSoundGameObject);
+        Destroy(expSound, 10.0f);
     }
 
     private void Update() {
