@@ -97,7 +97,7 @@ public class BombObjectComponent : MonoBehaviour
 
     void Death()
     {
-        EnemyDestroyer.DestroyEnemy(gameObject);
+        Destroy(gameObject);
 
         var c = Instantiate(_mExplosion);
         c.transform.position = transform.position;
