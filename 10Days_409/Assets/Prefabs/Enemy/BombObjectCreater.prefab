@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7240055256728487704
+--- !u!1 &8217178697645618328
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7240055256728487710}
-  - component: {fileID: 7240055256728487711}
+  - component: {fileID: 8217178697645618327}
+  - component: {fileID: 8217178697645618326}
   m_Layer: 0
-  m_Name: Score
+  m_Name: BombObjectCreater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7240055256728487710
+--- !u!4 &8217178697645618327
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240055256728487704}
+  m_GameObject: {fileID: 8217178697645618328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3476268, y: -0.06889425, z: 9.918059}
+  m_LocalPosition: {x: 4.544935, y: 2.560699, z: -1.9427546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7240055256728487711
+--- !u!114 &8217178697645618326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240055256728487704}
+  m_GameObject: {fileID: 8217178697645618328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0213293f273e8994092ebc02f821d610, type: 3}
+  m_Script: {fileID: 11500000, guid: eec6812b0d66c5840a4b62f87f05e691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rushEnemyScore: 1000
-  blockEnemyScore: 1500
-  bossScore: 10000
+  _BombObjectPrefab: {fileID: 3245867109398661170, guid: 1fc41e17fb06aec44951c3978eb56ebe, type: 3}
+  _GenerateRangeMin: {x: -3, y: 0, z: 0}
+  _GenerateRangeMax: {x: 3, y: 3, z: 0}
+  _GenerateBasePosition: {x: 0, y: 0, z: 30}
+  _GenerateInterval: 10

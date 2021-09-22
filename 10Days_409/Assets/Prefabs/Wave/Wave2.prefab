@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6393064128563786066
+--- !u!1 &573038879284140056
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6393064128563786064}
-  - component: {fileID: 6393064128563786067}
+  - component: {fileID: 573038879284140058}
+  - component: {fileID: 573038879284140057}
   m_Layer: 0
   m_Name: Wave2
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6393064128563786064
+--- !u!4 &573038879284140058
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6393064128563786066}
+  m_GameObject: {fileID: 573038879284140056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.220307, y: -5.5666246, z: 17.313755}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,23 +31,88 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6393064128563786067
+--- !u!114 &573038879284140057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6393064128563786066}
+  m_GameObject: {fileID: 573038879284140056}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fc2677110783b54eb0ec59f70872016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 2387385495829861682, guid: 897c6613eccada44aa0d0b5b369d4d4e, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
   enemysPosition:
-  - {x: 3, y: 0, z: 0}
+  - {x: -3, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 4, y: 2, z: 0}
+  - {x: -5, y: 2, z: 3}
+  - {x: -5, y: 2, z: 6}
+  - {x: -5, y: 2, z: 9}
+  - {x: 6, y: 2, z: 3}
+  - {x: 6, y: 2, z: 6}
+  - {x: 6, y: 2, z: 9}
+  - {x: -6, y: 2, z: 9}
+  - {x: -4, y: 2, z: 9}
+  - {x: -2, y: 2, z: 9}
+  - {x: 0, y: 2, z: 9}
+  - {x: 2, y: 2, z: 9}
+  - {x: 4, y: 2, z: 9}
+  - {x: 6, y: 2, z: 9}
+  - {x: -6, y: 0, z: 9}
+  - {x: -4, y: 0, z: 9}
+  - {x: -2, y: 0, z: 9}
+  - {x: 0, y: 0, z: 9}
+  - {x: 2, y: 0, z: 9}
+  - {x: 4, y: 0, z: 9}
+  - {x: 6, y: 0, z: 9}
   nextCreateTimes:
-  - 1
-  offsetEnemyPositionZ: 60
-  score: {fileID: 7240055256728487704, guid: 2a887b22e3dc169438f036f627f77187, type: 3}
+  - 0
+  - 0
+  - 0
+  - 24
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 24
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 12
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  offsetEnemyPositionZ: 50

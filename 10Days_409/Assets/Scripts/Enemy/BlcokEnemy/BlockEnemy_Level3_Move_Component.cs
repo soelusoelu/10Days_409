@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BlockEnemy_Level3_Move_Component : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed = 0.003f;
+    [SerializeField] private float _mMoveSpeed = 0.01f;
     [SerializeField] private float _mGenereateDefenceBlockSpeed = 3.0f;
 
     [SerializeField] private GameObject defenceBlockPrefab;
