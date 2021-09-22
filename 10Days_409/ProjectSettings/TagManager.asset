@@ -11,6 +11,7 @@ TagManager:
   - Enemy/RushEnemy
   - Enemy/ProtectionBlock
   - Item/LevelUpItem
+  - Player/Shield
   layers:
   - Default
   - TransparentFX

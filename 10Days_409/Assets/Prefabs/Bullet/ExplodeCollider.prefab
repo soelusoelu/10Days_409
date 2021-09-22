@@ -75,8 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55c07026a8817645b667e3dfe4c1aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 2246835613542317710, guid: 3edf2c151a35b494cb7086f82658d93b, type: 3}
   explodeRange: 60
-  waitFrames: 3
+  waitFrames: 10
 --- !u!114 &-6770022930163793096
 MonoBehaviour:
   m_ObjectHideFlags: 0

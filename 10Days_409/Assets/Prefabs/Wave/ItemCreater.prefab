@@ -44,10 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpItem: {fileID: 4284411955212226939, guid: 7f2cbc0a50c3a604181a13c306206d0b, type: 3}
-  itemPosition:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: -2, z: 0}
-  nextCreateTimes:
-  - 3
-  - 5
-  offsetItemPositionZ: 30
+  createInterval: 5
+  randomTime: 1
+  createPositionZ: 30

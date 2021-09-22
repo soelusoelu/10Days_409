@@ -22,7 +22,7 @@ public class BombShooter : MonoBehaviour
     void Update() {
         timer.Update();
 
-        if (!Input.GetKeyDown(KeyCode.Z)) {
+        if (!Input.GetKeyDown(KeyCode.Z) && !Input.GetButton("Bomb")) {
             return;
         }
         if (!timer.IsTime()) {

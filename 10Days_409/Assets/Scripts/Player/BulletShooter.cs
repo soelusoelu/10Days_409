@@ -17,7 +17,7 @@ public class BulletShooter : MonoBehaviour
     void Update() {
         timer.Update();
 
-        if (!Input.GetKey(KeyCode.Space)) {
+        if (!Input.GetKey(KeyCode.Space) && !Input.GetButton("Fire1")) {
             return;
         }
         if (!timer.IsTime()) {

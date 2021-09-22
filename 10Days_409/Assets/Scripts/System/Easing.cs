@@ -8,6 +8,10 @@ public class Easing
         return (x * x * x);
     }
 
+    static public float EaseOutCubic(float x) {
+        return 1 - Mathf.Pow(1f - x, 3f);
+    }
+
     static public float EaseInQuad(float x) {
         return (x * x);
     }
@@ -18,5 +22,9 @@ public class Easing
 
     static public float EaseInOutQuad(float x) {
         return x < 0.5f ? 2f * x * x : 1f - Mathf.Pow(-2f * x + 2f, 2f) / 2f;
+    }
+
+    static public float EaseOutExpo(float x) {
+        return (x == 1f) ? 1f : 1f - Mathf.Pow(2f, -10f * x);
     }
 }
