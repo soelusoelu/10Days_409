@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockEnemy_Level1_Move_Component : MonoBehaviour
 {
-    [SerializeField] private float _mMoveSpeed = 0.003f;
+    [SerializeField] private float _mMoveSpeed = 0.01f;
 
     // Start is called before the first frame update
     void Start()
