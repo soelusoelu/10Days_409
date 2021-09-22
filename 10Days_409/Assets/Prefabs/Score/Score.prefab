@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0213293f273e8994092ebc02f821d610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCreater: {fileID: 5937681707837920206, guid: 5eab4c8ad420c8d459858eaa92344881, type: 3}
+  rushEnemyScore: 1000
+  blockEnemyScore: 1500
+  bossScore: 10000
