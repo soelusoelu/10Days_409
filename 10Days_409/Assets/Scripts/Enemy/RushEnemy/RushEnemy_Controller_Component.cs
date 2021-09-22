@@ -167,7 +167,11 @@ public class RushEnemy_Controller_Component : MonoBehaviour
 
     void Death()
     {
-        Destroy(this.gameObject);
+        EnemyDestroyer.DestroyEnemy(gameObject);
+        CreateParticle();
+    }
+
+    void CreateParticle() {
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
         Destroy(particle, 3.0f);
@@ -180,7 +184,8 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Death();
+            EnemyDestroyer.DestroyEnemy(gameObject, true);
+            CreateParticle();
         }
 
         if (other.gameObject.tag == "LevelUpItem")

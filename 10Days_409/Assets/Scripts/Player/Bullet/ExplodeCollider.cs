@@ -18,6 +18,7 @@ public class ExplodeCollider : MonoBehaviour
         sphere.radius = explodeRange / 2f;
 
         var p = Instantiate(particle);
+        p.transform.position = transform.position;
         Destroy(p, 10f);
 
         var expSound = Instantiate(_explosionSoundGameObject);

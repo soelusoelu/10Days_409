@@ -162,19 +162,24 @@ public class BlockEnemy_Controller_Component : MonoBehaviour
 
     void Death()
     {
-        Destroy(this.gameObject);
+        EnemyDestroyer.DestroyEnemy(gameObject);
+        CreateParticle();
+    }
+
+    void CreateParticle() {
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
-        Destroy(particle,3.0f);
 
         var expSound = Instantiate(_explosionSoundGameObject);
         Destroy(expSound, 10.0f);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Death();
+            EnemyDestroyer.DestroyEnemy(gameObject, true);
+            CreateParticle();
         }
 
         if (other.gameObject.tag == "LevelUpItem")

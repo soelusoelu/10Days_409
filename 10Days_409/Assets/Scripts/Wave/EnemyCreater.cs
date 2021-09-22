@@ -8,18 +8,15 @@ public class EnemyCreater : MonoBehaviour
     [SerializeField] private Vector3[] enemysPosition;
     [SerializeField] private float[] nextCreateTimes;
     [SerializeField] private float offsetEnemyPositionZ = 5f;
-    private List<GameObject> createdEnemys;
+    private int createdEnemyCount = 0;
     private Timer timer;
     private int currentIndex = 0;
     private bool isLastCreatedWave = false;
-    public delegate void CallbackOnDeadEnemy();
-    private CallbackOnDeadEnemy onDeadEnemy;
 
     private void Start() {
         Debug.Assert(enemys.Length == nextCreateTimes.Length);
         Debug.Assert(enemys.Length == enemysPosition.Length);
 
-        createdEnemys = new List<GameObject>();
         timer = new Timer();
 
         if (enemys.Length > 0) {
@@ -27,16 +24,11 @@ public class EnemyCreater : MonoBehaviour
         } else {
             isLastCreatedWave = true;
         }
+
+        EnemyDestroyer.OnDestroyEnemy(RemoveEnemy);
     }
 
     private void Update() {
-        for (int i = 0; i < createdEnemys.Count; i++) {
-            if (createdEnemys[i] == null) {
-                onDeadEnemy?.Invoke();
-                createdEnemys.RemoveAt(i);
-            }
-        }
-
         if (isLastCreatedWave) {
             return;
         }
@@ -48,7 +40,7 @@ public class EnemyCreater : MonoBehaviour
 
         var newEnemy = Instantiate(enemys[currentIndex]);
         newEnemy.transform.position = enemysPosition[currentIndex] + Vector3.forward * offsetEnemyPositionZ;
-        createdEnemys.Add(newEnemy);
+        ++createdEnemyCount;
 
         ++currentIndex;
         if (currentIndex >= enemys.Length) {
@@ -62,14 +54,14 @@ public class EnemyCreater : MonoBehaviour
     }
 
     public bool IsDestroyedEnemys() {
-        return (createdEnemys.Count == 0);
+        return (createdEnemyCount == 0);
     }
 
     public bool CreatedLastEnemy() {
         return isLastCreatedWave;
     }
 
-    public void OnDeadEnemy(CallbackOnDeadEnemy f) {
-        onDeadEnemy += f;
+    private void RemoveEnemy(GameObject enemy, bool outOfArea) {
+        --createdEnemyCount;
     }
 }
