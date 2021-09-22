@@ -6,12 +6,16 @@ public class BulletShooter : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private float reshotInterval = 0.25f;
+    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private AudioClip _ShotAudioClip;
     private Timer timer;
 
     void Start() {
         timer = new Timer();
         timer.SetLimitTime(reshotInterval);
         timer.Overlimit();
+
+        _AudioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -28,5 +32,7 @@ public class BulletShooter : MonoBehaviour
 
         var newBullet = Instantiate(bullet);
         newBullet.transform.position = transform.position;
+
+        _AudioSource.PlayOneShot(_ShotAudioClip);
     }
 }

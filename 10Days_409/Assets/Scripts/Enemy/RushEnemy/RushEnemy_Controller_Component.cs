@@ -16,9 +16,11 @@ public class RushEnemy_Controller_Component : MonoBehaviour
     [SerializeField] private GameObject clockLevel2;
     [SerializeField] private GameObject clockLevel1;
 
-     private Image currentClockImage;
+    [SerializeField] private GameObject _explosionSoundGameObject;
 
-     [SerializeField] private Animator clockUiAnimator;
+    private Image currentClockImage;
+
+    [SerializeField] private Animator clockUiAnimator;
 
     [SerializeField] private GameObject _mLevel2Body;
     [SerializeField] private GameObject _mLevel3Body;
@@ -40,6 +42,19 @@ public class RushEnemy_Controller_Component : MonoBehaviour
         _mEnemyDamage = GetComponent<Enemy_Damage>();
 
         _mLevel.OnDead(Death);
+
+        int isVariation = Random.Range(0, 30);
+
+        // �ψٌ^
+        if (isVariation == 0)
+        {
+            int downLevel = Random.Range(1, 2);
+
+            for (int i = 0; i < downLevel; ++i)
+            {
+                _mLevel.LevelDown();
+            }
+        }
 
 
         LevelChange();
@@ -156,6 +171,9 @@ public class RushEnemy_Controller_Component : MonoBehaviour
         var particle = GameObject.Instantiate(_mDeathParticle);
         particle.transform.position = transform.position;
         Destroy(particle, 3.0f);
+
+        var expSound = Instantiate(_explosionSoundGameObject);
+        Destroy(expSound, 10.0f);
     }
 
     private void OnTriggerEnter(Collider other)

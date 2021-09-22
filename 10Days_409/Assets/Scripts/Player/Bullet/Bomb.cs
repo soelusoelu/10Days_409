@@ -7,6 +7,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private GameObject explosion;
     [SerializeField] private float moveSpeed = 30f;
     [SerializeField] private float explosionTime = 2.5f;
+
     private Timer explosionTimer;
     public delegate void CallbackOnExplode();
     private CallbackOnExplode onExplode;
@@ -33,12 +34,15 @@ public class Bomb : MonoBehaviour
     }
 
     private void Explode() {
+
+
         var c = Instantiate(explosion);
         c.transform.position = transform.position;
 
         onExplode?.Invoke();
 
         Destroy(gameObject);
+
     }
 
     public void OnExplode(CallbackOnExplode f) {

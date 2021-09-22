@@ -44,42 +44,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
   - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
-  - {fileID: 8349322349061923034, guid: 20bf6a6cc706dbf46b67a02a44b8c881, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
+  - {fileID: 898460439743553387, guid: 14907a8342a4cce4da1ad49ff4698320, type: 3}
   enemysPosition:
-  - {x: 3, y: 0, z: 0}
-  - {x: -3, y: 0, z: 0}
   - {x: 0, y: 2, z: 0}
-  - {x: 3, y: 0, z: 0}
+  - {x: 3, y: 2, z: 0}
+  - {x: -3, y: 2, z: 0}
+  - {x: -6, y: 0, z: 0}
   - {x: -3, y: 0, z: 0}
-  - {x: -3, y: 0, z: 0}
-  - {x: -2, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  - {x: 6, y: 0, z: 0}
   - {x: 3, y: 0, z: 0}
-  - {x: 4, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
+  - {x: -9, y: 4, z: 0}
+  - {x: -6, y: 4, z: 0}
+  - {x: -3, y: 4, z: 0}
+  - {x: 9, y: 4, z: 0}
+  - {x: 6, y: 4, z: 0}
+  - {x: 3, y: 4, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
+  - {x: 0, y: 2, z: 0}
   nextCreateTimes:
+  - 0
+  - 0
+  - 0
+  - 6
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 12
+  - 1
   - 1
   - 3
-  - 3
-  - 6
-  - 6
-  - 6
+  - 1
+  - 1
   - 12
-  - 13
-  - 14
-  - 16
-  - 17
-  - 18
-  offsetEnemyPositionZ: 60
+  - 12
+  - 12
+  - 12
+  - 12
+  - 12
+  - 12
+  - 12
+  - 12
+  offsetEnemyPositionZ: 50

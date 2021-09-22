@@ -78,6 +78,7 @@ MonoBehaviour:
   particle: {fileID: 2246835613542317710, guid: 3edf2c151a35b494cb7086f82658d93b, type: 3}
   explodeRange: 60
   waitFrames: 10
+  _explosionSoundGameObject: {fileID: 2933676888417091215, guid: b8da08cd4cb2a664e9244f7c43f155e5, type: 3}
 --- !u!114 &-6770022930163793096
 MonoBehaviour:
   m_ObjectHideFlags: 0

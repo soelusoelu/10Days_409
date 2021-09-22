@@ -8,6 +8,10 @@ public class OptionShooter : MonoBehaviour
     [SerializeField] private float reshotInterval = 0.5f;
     [SerializeField] private float rotateTime = 2f;
     [SerializeField] private bool isRightRotation = true;
+
+    [SerializeField] private AudioSource _AudioSource;
+    [SerializeField] private AudioClip _ShotAudioClip;
+
     private Timer timer;
     private Timer rotateTimer;
     private Timer performanceTimer;
@@ -30,6 +34,8 @@ public class OptionShooter : MonoBehaviour
 
         performanceTimer = new Timer();
         performanceTimer.SetLimitTime(1f);
+
+        _AudioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -57,6 +63,8 @@ public class OptionShooter : MonoBehaviour
 
         var newBullet = Instantiate(bullet);
         newBullet.transform.position = transform.position;
+
+        _AudioSource.PlayOneShot(_ShotAudioClip);
     }
 
     private void Rotate() {
