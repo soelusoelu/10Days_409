@@ -7,18 +7,23 @@ public class UIStateManagerComponent : MonoBehaviour
     [SerializeField]  GameObject _mPlayer;
     [SerializeField]  GameObject _mGamePlayUIs;
     [SerializeField]  GameObject _mResultUIs;
+    [SerializeField] private WaveSystem _waveSystem;
 
     private Judgement _mJudgement;
 
     private bool _mIsShowResult;
+    private bool _mIsEndGame;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _mIsShowResult = false;
+        _mIsEndGame = false;
 
         _mJudgement = GetComponent<Judgement>();
+
+        _waveSystem.OnAllEndWave(OnEndGame);
     }
 
     // Update is called once per frame
@@ -37,9 +42,7 @@ public class UIStateManagerComponent : MonoBehaviour
 
         if (IsDestroyPlayer())
         {
-            _mGamePlayUIs.SetActive(false);
-            _mResultUIs.SetActive(true);
-            _mIsShowResult = true;
+            ShowResult();
             return;
         }
 
@@ -47,8 +50,21 @@ public class UIStateManagerComponent : MonoBehaviour
         _mResultUIs.SetActive(false);
     }
 
+    void ShowResult()
+    {
+        _mGamePlayUIs.SetActive(false);
+        _mResultUIs.SetActive(true);
+        _mIsShowResult = true;
+    }
+
     bool IsDestroyPlayer()
     {
         return _mPlayer == null;
+    }
+
+    void OnEndGame()
+    {
+        _mIsEndGame = true;
+        ShowResult();
     }
 }
