@@ -31,7 +31,8 @@ public class UIStateManagerComponent : MonoBehaviour
     {
         if (_mIsShowResult)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)
+                || Input.GetButtonDown("Submit"))
             {
                 _mJudgement.setJudge(true);
             }

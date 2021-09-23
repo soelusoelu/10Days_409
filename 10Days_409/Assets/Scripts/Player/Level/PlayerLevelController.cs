@@ -15,6 +15,9 @@ public class PlayerLevelController : MonoBehaviour
         level.OnUpdateLevel(ChangeLevel);
         currentLevel = level.GetLevel();
 
+        var score = GameObject.Find("Score").GetComponent<Score>();
+        level.OnDead(score.DisableUpdate);
+
         optionManager = transform.GetChild(0).GetComponent<OptionShooterManager>();
         shieldManager = transform.GetChild(1).GetComponent<ShieldManager>();
     }

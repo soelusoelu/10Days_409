@@ -19,6 +19,9 @@ public class WaveSystem : MonoBehaviour
             var newCreater = Instantiate(newWave);
             enemyCreater = newCreater.GetComponent<EnemyCreater>();
         }
+
+        var score = GameObject.Find("Score").GetComponent<Score>();
+        OnAllEndWave(score.DisableUpdate);
     }
 
     private void Update() {
