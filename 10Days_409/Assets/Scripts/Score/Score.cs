@@ -11,27 +11,52 @@ public class Score : MonoBehaviour
     [SerializeField] private int addTimeScore = 1;
     private Timer timer;
     private int score;
+    private int _ScorePool;
+
     private bool isUpdate = true;
 
     private void Start() {
         timer = new Timer();
         timer.SetLimitTime(scoreAddTime);
+
+        _ScorePool = 0;
     }
 
-    private void Update() {
+    private void Update()
+    {
+
+        UpdateScore();
+
         if (!isUpdate) {
             return;
         }
 
-        timer.Update();
-        if (timer.IsTime()) {
-            timer.Reset();
-            AddScore(addTimeScore);
+        //timer.Update();
+        //if (timer.IsTime()) {
+        //    timer.Reset();
+        //    AddScore(addTimeScore);
+        //}
+    }
+
+    void UpdateScore()
+    {
+        if (_ScorePool <= 0)
+        {
+            return;
         }
+
+        _ScorePool -= 1;
+        score += 1;
     }
 
     public void AddScore(int amount) {
-        score += amount;
+        _ScorePool += amount;
+    }
+
+    void AdjustmentScore()
+    {
+        score += _ScorePool;
+        _ScorePool = 0;
     }
 
     public void AddScore(string tag, float posZ) {
@@ -55,7 +80,9 @@ public class Score : MonoBehaviour
         return score;
     }
 
-    public void DisableUpdate() {
+    public void DisableUpdate()
+    {
+        AdjustmentScore();
         isUpdate = false;
     }
 }
