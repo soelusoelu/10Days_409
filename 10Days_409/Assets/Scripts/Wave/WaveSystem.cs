@@ -56,7 +56,6 @@ public class WaveSystem : MonoBehaviour
             Debug.Log("ended all waves.");
             onAllEndWave?.Invoke();
             isEnd = true;
-            GameObject.Find("Score").GetComponent<Score>().DisableUpdate();
             --currentIndex;
         } else {
             var newCreater = Instantiate(waves[currentIndex]);

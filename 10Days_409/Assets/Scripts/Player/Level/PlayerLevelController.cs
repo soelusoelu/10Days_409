@@ -13,7 +13,6 @@ public class PlayerLevelController : MonoBehaviour
     private void Start() {
         level = GetComponent<Level>();
         level.OnUpdateLevel(ChangeLevel);
-        level.OnDead(DisableScoreUpdate);
         currentLevel = level.GetLevel();
 
         optionManager = transform.GetChild(0).GetComponent<OptionShooterManager>();
@@ -42,9 +41,5 @@ public class PlayerLevelController : MonoBehaviour
         }
 
         currentLevel = nextLevel;
-    }
-
-    private void DisableScoreUpdate() {
-        GameObject.Find("Score").GetComponent<Score>().DisableUpdate();
     }
 }
