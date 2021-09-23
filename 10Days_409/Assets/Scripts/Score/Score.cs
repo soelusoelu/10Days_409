@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     [SerializeField] private int addTimeScore = 1;
     private Timer timer;
     private int score;
+    private bool isUpdate = true;
 
     private void Start() {
         timer = new Timer();
@@ -18,6 +19,10 @@ public class Score : MonoBehaviour
     }
 
     private void Update() {
+        if (!isUpdate) {
+            return;
+        }
+
         timer.Update();
         if (timer.IsTime()) {
             timer.Reset();
@@ -48,5 +53,9 @@ public class Score : MonoBehaviour
 
     public int GetScore() {
         return score;
+    }
+
+    public void DisableUpdate() {
+        isUpdate = false;
     }
 }
