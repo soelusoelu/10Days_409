@@ -7,18 +7,13 @@ public class Score : MonoBehaviour
     [SerializeField] private int rushEnemyScore = 100;
     [SerializeField] private int blockEnemyScore = 150;
     [SerializeField] private int bossScore = 1000;
-    [SerializeField] private float scoreAddTime = 0.5f;
-    [SerializeField] private int addTimeScore = 1;
-    private Timer timer;
     private int score;
     private int _ScorePool;
 
     private bool isUpdate = true;
 
-    private void Start() {
-        timer = new Timer();
-        timer.SetLimitTime(scoreAddTime);
-
+    private void Start() 
+    {
         _ScorePool = 0;
     }
 
@@ -31,11 +26,6 @@ public class Score : MonoBehaviour
             return;
         }
 
-        //timer.Update();
-        //if (timer.IsTime()) {
-        //    timer.Reset();
-        //    AddScore(addTimeScore);
-        //}
     }
 
     void UpdateScore()
@@ -48,6 +38,7 @@ public class Score : MonoBehaviour
         _ScorePool -= 1;
         score += 1;
     }
+
 
     public void AddScore(int amount) {
         _ScorePool += amount;
@@ -85,4 +76,5 @@ public class Score : MonoBehaviour
         AdjustmentScore();
         isUpdate = false;
     }
+
 }
